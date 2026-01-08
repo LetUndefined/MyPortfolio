@@ -4,7 +4,19 @@ import NavBar from '@/components/NavBar.vue';
 import BtnComponent from '@/components/BtnComponent.vue';
 import AboutMe from '@/components/AboutMe.vue';
 import codeImage from '/Users/fallen/Portfolio-vue/Portfolio/src/assets/icons/code.svg'
+import { onMounted, onUnmounted } from 'vue';
+import { handleScroll } from '@/composables/NavBarScroll';
 
+
+
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>

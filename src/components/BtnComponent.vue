@@ -13,7 +13,6 @@
 <style scoped>
 
   .btn {
-    padding: 1rem 1.5rem;
     background-color: var(--primary-btn-color);
     border-radius: 30px;
     color: white;
@@ -22,7 +21,9 @@
     box-shadow: 0px 0px 2px white;
     font-size: 16px;
     transition: ease-in-out 0.2s;
+    padding: 1rem;
   }
+
 
   .btn:hover{
     cursor: pointer ;
