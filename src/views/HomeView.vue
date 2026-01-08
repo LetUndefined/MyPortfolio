@@ -3,7 +3,7 @@ import DraggableBlocks from '@/components/DraggableBlocks.vue';
 import NavBar from '@/components/NavBar.vue';
 import BtnComponent from '@/components/BtnComponent.vue';
 import AboutMe from '@/components/AboutMe.vue';
-import codeImage from '/Users/fallen/Portfolio-vue/Portfolio/src/assets/icons/code.svg'
+import codeImage from '@/assets/icons/code.svg'
 import { onMounted, onUnmounted } from 'vue';
 import { handleScroll } from '@/composables/NavBarScroll';
 
