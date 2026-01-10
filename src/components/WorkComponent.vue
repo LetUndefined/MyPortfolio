@@ -25,17 +25,15 @@ const props = defineProps<{
       <v-card-subtitle> </v-card-subtitle>
     </v-card-item>
 
-    <v-card-text >
+    <v-card-text>
       <div class="my-4 text-subtitle-1">
         <div>{{ props.information }}</div>
       </div>
-
     </v-card-text>
-
 
     <div class="px-4 mb-2">
       <div class="language-chip">
-        <v-chip  v-for="(chip, index) in props.language" :key="index">{{ chip }}</v-chip>
+        <v-chip v-for="(chip, index) in props.language" :key="index">{{ chip }}</v-chip>
       </div>
     </div>
 
@@ -57,7 +55,6 @@ const props = defineProps<{
   position: relative;
   border-radius: 30px;
   width: 500px;
-
 }
 
 .year {
@@ -73,7 +70,6 @@ const props = defineProps<{
   left: 14px;
   font-size: 26px;
   color: var(--primary-white);
-
 }
 
 .subtitle {
@@ -84,14 +80,13 @@ const props = defineProps<{
   color: var(--primary-white);
 }
 
-.language-chip .v-chip{
+.language-chip .v-chip {
   margin-right: 10px;
 }
 
 .language-chip :deep(.v-chip__content) {
   font-size: 12px;
 }
-
 
 .icons .v-chip {
   margin: 10px 10px 10px 0;
@@ -105,24 +100,21 @@ const props = defineProps<{
   margin-right: 3px;
 }
 
-
-.project-chip{
+.project-chip {
   background-color: black;
   color: white;
   transition: 0.1s ease-in-out;
 }
 
-.project-chip:hover{
+.project-chip:hover {
   transform: scale(1.05);
 }
 
-.project-chip img{
+.project-chip img {
   filter: invert(1);
 }
 
-.github-chip:hover{
+.github-chip:hover {
   transform: scale(1.05);
-
 }
-
 </style>

@@ -14,4 +14,3 @@ export interface Work {
   projectLink: string
   githubLink: string
 }
-

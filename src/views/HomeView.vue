@@ -85,8 +85,6 @@ onUnmounted(() => {
         :github-link="work.githubLink"
       />
     </div>
-
-
   </section>
 </template>
 
@@ -195,14 +193,14 @@ p {
   color: #ffff;
 }
 
-.work-container{
+.work-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.work-content{
+.work-content {
   display: flex;
   justify-content: flex-start;
   align-items: center;
