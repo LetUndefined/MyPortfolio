@@ -1,56 +1,57 @@
 <script setup lang="ts">
-
 import Draggable from 'vuedraggable'
-import BtnComponent from './BtnComponent.vue';
-import { useDraggableBlocks } from '@/composables/useDraggableBlocks';
+import BtnComponent from './BtnComponent.vue'
+import { useDraggableBlocks } from '@/composables/useDraggableBlocks'
 
-const {nameArray, getRandomColor} = useDraggableBlocks()
+const { nameArray, getRandomColor } = useDraggableBlocks()
 
 const onListChange = (event: void) => {
   console.log('List changed:', event)
 }
-
-
-
 </script>
 
 <template>
-<div class="container">
-  <p class="first">digital creator / developer / designer</p>
+  <div class="container">
+    <p class="first">digital creator / developer / designer</p>
     <draggable
-    v-model="nameArray"
-    @change="onListChange"
-    item-key="id"
-    class="draggable-list"
-    :animation="200"
+      v-model="nameArray"
+      @change="onListChange"
+      item-key="id"
+      class="draggable-list"
+      :animation="200"
     >
-      <template #item="{ element }" >
+      <template #item="{ element }">
         <div class="block-container">
-          <div class="block" :style="{backgroundColor: element.color} " @click="getRandomColor(element.id)"><span class="letter">{{ element.name }}</span></div>
+          <div
+            class="block"
+            :style="{ backgroundColor: element.color }"
+            @click="getRandomColor(element.id)"
+          >
+            <span class="letter">{{ element.name }}</span>
+          </div>
         </div>
       </template>
     </draggable>
-  <p class="second">Crafting digital experiences that blend creativity with functionality. Drag the tiles, change colors, and explore.</p>
+    <p class="second">
+      Crafting digital experiences that blend creativity with functionality. Drag the tiles, change
+      colors, and explore.
+    </p>
     <BtnComponent>
       <span>Explore My Work</span>
     </BtnComponent>
   </div>
-
 </template>
 
 <style scoped>
+:deep(.sortable-ghost) {
+  opacity: 0.4;
+}
 
-  :deep(.sortable-ghost){
-    opacity: 0.4;
-  }
+:deep(.sortable-chosen) {
+  cursor: grabbing;
+}
 
-  :deep(.sortable-chosen) {
-    cursor: grabbing ;
-  }
-
-
-
-.container{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,14 +59,12 @@ const onListChange = (event: void) => {
   height: 100vh;
 }
 
-.block-container{
-display: inline-block;
-margin: 0.5rem;
+.block-container {
+  display: inline-block;
+  margin: 0.5rem;
 }
 
-
-
-.block{
+.block {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,7 +74,7 @@ margin: 0.5rem;
   color: white;
 }
 
-.block:hover{
+.block:hover {
   cursor: pointer;
   animation: test 0.3s ease-in-out;
 }
@@ -87,30 +86,29 @@ margin: 0.5rem;
   25% {
     transform: rotate(-10deg);
   }
-  50%{
-        transform: rotate(10deg);
+  50% {
+    transform: rotate(10deg);
   }
   75% {
-        transform: rotate(-10deg);
+    transform: rotate(-10deg);
   }
-  100%{
-        transform: rotate(0deg);
+  100% {
+    transform: rotate(0deg);
   }
 }
 
-
-.letter{
+.letter {
   font-size: 5rem;
   text-transform: uppercase;
   font-family: 'Titan One';
   text-shadow: 1px 2px black;
 }
 
-p{
+p {
   color: var(--primary-p-color);
 }
 
-.first{
+.first {
   font-family: var(--secondary-font);
   text-transform: uppercase;
   letter-spacing: 5px;
@@ -118,13 +116,11 @@ p{
   margin: 2rem;
 }
 
-.second{
+.second {
   margin: 2rem;
   font-size: 16px;
   font-family: var(--primary-font);
   max-width: 40rem;
   text-align: center;
 }
-
-
 </style>

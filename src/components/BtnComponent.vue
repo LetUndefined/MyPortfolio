@@ -1,8 +1,4 @@
-<script setup lang="ts">
-
-
-</script>
-
+<script setup lang="ts"></script>
 
 <template>
   <button class="btn">
@@ -11,22 +7,20 @@
 </template>
 
 <style scoped>
+.btn {
+  background-color: var(--primary-btn-color);
+  border-radius: 30px;
+  color: white;
+  backdrop-filter: blur(10px);
+  border: none;
+  box-shadow: 0px 0px 2px white;
+  font-size: 16px;
+  transition: ease-in-out 0.2s;
+  padding: 1rem;
+}
 
-  .btn {
-    background-color: var(--primary-btn-color);
-    border-radius: 30px;
-    color: white;
-    backdrop-filter: blur(10px);
-    border: none;
-    box-shadow: 0px 0px 2px white;
-    font-size: 16px;
-    transition: ease-in-out 0.2s;
-    padding: 1rem;
-  }
-
-
-  .btn:hover{
-    cursor: pointer ;
-    transform: scale(1.05);
-  }
+.btn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
 </style>

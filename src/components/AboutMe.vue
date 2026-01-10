@@ -1,34 +1,29 @@
 <script setup lang="ts">
-
 const props = defineProps<{
   imageSrc: string
   title: string
   descr: string
 }>()
-
 </script>
-
 
 <template>
   <div class="container">
     <div class="content">
-      <img :src="props.imageSrc" >
-      <h3> {{  props.title }}</h3>
+      <img :src="props.imageSrc" />
+      <h3>{{ props.title }}</h3>
       <p>{{ props.descr }}</p>
     </div>
   </div>
 </template>
 
-
-<style scoped >
-
-.container{
+<style scoped>
+.container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   border: 1px solid rgb(205, 204, 207, 0.4);
   flex-direction: column;
-  box-shadow: 0px 10px 10px -10px  black;
+  box-shadow: 0px 10px 10px -10px black;
   border-radius: 20px;
   padding: 3.5rem 2.5rem;
   transition: 0.3s ease-in-out;
@@ -36,29 +31,35 @@ const props = defineProps<{
   overflow: hidden;
 }
 
-.container::before{
+.container::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom right, rgba(197, 8, 255, 0.1),rgba(146, 132, 226, 0.1),rgba(0, 217, 255,0.1));
+  background: linear-gradient(
+    to bottom right,
+    rgb(30, 58, 138, 0.1),
+    rgb(59, 130, 246, 0.1),
+    rgb(219, 234, 254, 0.1)
+  );
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   z-index: -1;
   border-radius: 20px;
 }
 
-.container:hover{
+.container:hover {
   transform: translateY(-10px);
+  box-shadow: 1px 1px 10px -5px black;
 }
 
-.container:hover::before{
+.container:hover::before {
   opacity: 1;
 }
 
-.content{
+.content {
   display: flex;
   justify-content: flex;
   align-items: flex-start;
@@ -67,25 +68,28 @@ const props = defineProps<{
   font-family: var(--primary-font);
 }
 
-
-
-.content img{
+.content img {
   border-radius: 10px;
   padding: 1rem;
-  background: linear-gradient(to bottom right, rgba(197, 8, 255, 0.5),rgba(146, 132, 226, 0.5),rgba(0, 217, 255,0.5));
+  background: linear-gradient(
+    to right,
+    rgb(30, 58, 138, 0.8),
+    rgb(59, 130, 246, 0.8),
+    rgb(219, 234, 254, 0.8)
+  );
+
   color: white;
   backdrop-filter: blur(100px);
-  box-shadow: 0px 2px 10px -5px  black;
+  box-shadow: 0px 2px 10px -5px black;
 }
 
-.content h3{
+.content h3 {
   font-size: 1.5rem;
   font-weight: 500;
 }
 
- .content p {
-    max-width: 20rem;
-    font-weight: 300;
-  }
-
+.content p {
+  max-width: 20rem;
+  font-weight: 300;
+}
 </style>

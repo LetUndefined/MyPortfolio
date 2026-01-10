@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { isScrolled } from '@/composables/NavBarScroll';
-import BtnComponent from './BtnComponent.vue';
-
-
+import { isScrolled } from '@/composables/NavBarScroll'
+import BtnComponent from './BtnComponent.vue'
 </script>
 <template>
-  <nav :class="['nav', {'navbar-scrolled': isScrolled}]">
+  <nav :class="['nav', { 'navbar-scrolled': isScrolled }]">
     <div class="navbar">
       <h3>Sandro</h3>
       <ul class="list">
@@ -21,9 +19,8 @@ import BtnComponent from './BtnComponent.vue';
   </nav>
 </template>
 
-
 <style scoped>
-.nav{
+.nav {
   position: fixed;
   width: 100%;
   top: 0;
@@ -33,26 +30,23 @@ import BtnComponent from './BtnComponent.vue';
   font-family: var(--secondary-font);
   font-weight: 600;
   transition: 0.3s ease-in-out;
-
 }
 
-.navbar{
+.navbar {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.navbar h3{
+.navbar h3 {
   text-transform: uppercase;
 }
 
-li{
-list-style: none;
+li {
+  list-style: none;
 }
 
-
-
-.list{
+.list {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,8 +58,6 @@ list-style: none;
   transition: 0.3s ease-in-out;
   color: black;
   z-index: 9999;
+  box-shadow: 1px 1px 10px black;
 }
-
-
-
 </style>
