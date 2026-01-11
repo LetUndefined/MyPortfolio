@@ -15,7 +15,7 @@ const props = defineProps<{
 
 <template>
   <v-card class=" mx-4 my-12" max-width="6OO">
-    <v-img height="250" :src="props.image" cover>
+    <v-img height="250" :src="props.image" cover gradient="to top, rgba(0,0,0,.6), transparent">
       <p class="year">{{ props.year }}</p>
       <h4 class="title">{{ props.title }}</h4>
       <p class="subtitle">{{ props.subtitle }}</p>
@@ -66,9 +66,11 @@ const props = defineProps<{
 }
 
 .v-img{
+  position: relative;
   transition: 0.3s ease-in-out;
-
 }
+
+
 
 .v-card:hover .v-img{
   transform: scale(1.05);

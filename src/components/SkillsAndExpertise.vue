@@ -12,7 +12,7 @@ iconColor?: string
 </script>
 
 <template>
-<v-card class="mx-auto">
+<v-card class="mx-auto" :style="{'--icon-bg-color': props.color}">
 
   <v-card-item>
 
@@ -37,13 +37,26 @@ iconColor?: string
 <style scoped>
 
 .v-card {
+  position: relative;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 300px;
   height: 200px;
+}
 
+.v-card::before{
+ content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10px;
+  background-color: var(--icon-bg-color);
+  z-index: 1;
+  border-radius: 20px;
 }
 
 .v-card-item > *{

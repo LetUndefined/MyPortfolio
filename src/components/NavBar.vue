@@ -58,7 +58,7 @@ li {
 }
 
 .navbar-scrolled {
-  background-color: rgb(235, 235, 235);
+  background-color: var(--primary-white);
   transition: 0.3s ease-in-out;
   color: black;
   z-index: 9999;

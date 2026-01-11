@@ -5,11 +5,12 @@ import blackjack from '@/assets/images/blackjack.png'
 import portfolio from '@/assets/images/portfolio.png'
 import simon from '@/assets/images/simonsays.png'
 import cryptoTracker from '@/assets/images/cryptotracker.png'
+import trading from "@/assets/images/trading.png"
 
 
 const workArray: Ref<Work[]> = ref([
   {
-    image: blackjack,
+    image: trading,
     title: 'Automated Trading',
     subtitle: "Created profitable automated trading strategies",
     year: '2025',
@@ -22,7 +23,7 @@ const workArray: Ref<Work[]> = ref([
     image: blackjack,
     title: 'Blackjack',
     subtitle: 'Functioning Blackjack game',
-    year: '2025',
+    year: '2024',
     language: ['Javascript', 'HTML', 'CSS'],
     information: 'My first solo project building a functional Blackjack game using vanilla JavaScript.',
     projectLink: 'https://letundefined.github.io/Blackjack/',
@@ -32,7 +33,7 @@ const workArray: Ref<Work[]> = ref([
     image: portfolio,
     title: 'Portfolio',
     subtitle: 'First Portfolio',
-    year: '2025',
+    year: '2024',
     language: ['Javascript', 'HTML', 'SCSS'],
     information: 'This marked the beginning of my journey, my first ever portfolio.',
     projectLink: 'https://letundefined.github.io/Portfolio/',
@@ -55,7 +56,7 @@ const workArray: Ref<Work[]> = ref([
     year: '2025',
     language: ['Vue', 'HTML', 'CSS', 'Typescript'],
     information: 'Small project to track the price of cryptocurrencies using APIs. First collaboration with AI',
-    projectLink: 'http://www.google.com',
+    projectLink: 'https://letundefined.github.io/CryptoTracker/',
     githubLink: 'https://github.com/LetUndefined/CryptoTracker',
   },
   {
