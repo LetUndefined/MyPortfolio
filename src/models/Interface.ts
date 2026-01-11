@@ -1,3 +1,5 @@
+import type { Component } from 'vue'
+
 export interface Block {
   id: number
   name: string
@@ -15,9 +17,10 @@ export interface Work {
   githubLink: string
 }
 
-
 export interface Skills {
-  image: string
+  icon: Component
   skill: string
   chip: string
+  color: string
+  iconColor?: string
 }

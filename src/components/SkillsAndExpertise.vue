@@ -1,8 +1,12 @@
 <script setup lang="ts">
+import type { Component } from 'vue'
+
 const props = defineProps<{
-image: string
+icon: Component
 skill: string
 chip: string
+color: string
+iconColor?: string
 }>()
 
 </script>
@@ -12,9 +16,9 @@ chip: string
 
   <v-card-item>
 
-    <v-card-item class="image-container">
+    <v-card-item class="image-container" :style="{background: props.color, color: props.iconColor || '#000'}">
 
-      <v-img :src="props.image"/>
+      <component :is="props.icon" :size="30" :stroke-width="2"/>
     </v-card-item>
 
     <v-card-title>
@@ -39,7 +43,7 @@ chip: string
   align-items: center;
   width: 300px;
   height: 200px;
-  box-shadow: 0px 3px 10px -5px black;
+
 }
 
 .v-card-item > *{
@@ -62,10 +66,5 @@ chip: string
 
 }
 
-:deep(.v-img) {
-  max-width: 30px;
-  width: 30px;
-  height: 30px;
-}
 
 </style>

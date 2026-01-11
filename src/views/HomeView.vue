@@ -100,7 +100,7 @@ onUnmounted(() => {
       <h2>Skills & <span>Expertise</span></h2>
       <p>A diverse toolkit built through years of learning, experimentation, and real-world projects.</p>
     <div class="expertise-content">
-      <SkillsAndExpertise v-for="(skill, index) in skillsArray" :key="index" :image="skill.image" :skill="skill.skill" :chip="skill.chip"/>
+      <SkillsAndExpertise v-for="(skill, index) in skillsArray" :key="index" :icon="skill.icon" :skill="skill.skill" :chip="skill.chip" :color="skill.color" :icon-color="skill.iconColor"/>
     </div>
     </div>
 
