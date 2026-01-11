@@ -278,4 +278,8 @@ flex-wrap: wrap;
 gap: 2rem;
 }
 
+.expertise-container p{
+  text-align: center;
+}
+
 </style>
