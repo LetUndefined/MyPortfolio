@@ -4,10 +4,13 @@ import NavBar from '@/components/NavBar.vue'
 import BtnComponent from '@/components/BtnComponent.vue'
 import AboutMe from '@/components/AboutMe.vue'
 import codeImage from '@/assets/icons/code.svg'
+import artist from "@/assets/icons/palette.svg"
+import star from "@/assets/icons/sparkles.svg"
 import { onMounted, onUnmounted } from 'vue'
 import { handleScroll } from '@/composables/NavBarScroll'
 import WorkComponent from '@/components/WorkComponent.vue'
 import { workArray } from '@/composables/SelectedWork'
+
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
@@ -52,14 +55,14 @@ onUnmounted(() => {
         descr="Building scalable web applications with modern technologies and best practices."
       />
       <AboutMe
-        :image-src="codeImage"
-        title="Developer"
-        descr="Building scalable web applications with modern technologies and best practices."
+        :image-src="artist"
+        title="Designer"
+        descr="Creating intuitive interfaces that users love with attention to every detail."
       />
       <AboutMe
-        :image-src="codeImage"
-        title="Developer"
-        descr="Building scalable web applications with modern technologies and best practices."
+        :image-src="star"
+        title="Creator"
+        descr="Experimenting with new ideas and pushing the boundaries of digital experiences."
       />
     </div>
     <div class="quote-container">
@@ -69,21 +72,24 @@ onUnmounted(() => {
       </p>
     </div>
   </section>
-  <section class="work-container">
-    <h2>Selected Work</h2>
-    <div class="work-content">
-      <WorkComponent
-        v-for="(work, index) in workArray"
-        :key="index"
-        :image="work.image"
-        :title="work.title"
-        :subtitle="work.subtitle"
-        :year="work.year"
-        :language="work.language"
-        :information="work.information"
-        :project-link="work.projectLink"
-        :github-link="work.githubLink"
-      />
+  <section class="work-section">
+    <div class="work-container">
+      <h2>Selected <span>Work</span></h2>
+      <p>A collection of projects that showcase my approach to design, development, and digital innovation</p>
+      <div class="work-content">
+        <WorkComponent
+          v-for="(work, index) in workArray"
+          :key="index"
+          :image="work.image"
+          :title="work.title"
+          :subtitle="work.subtitle"
+          :year="work.year"
+          :language="work.language"
+          :information="work.information"
+          :project-link="work.projectLink"
+          :github-link="work.githubLink"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -153,15 +159,7 @@ p {
 }
 
 .about-text span {
-  background: linear-gradient(
-    to bottom right,
-    rgb(30, 58, 138, 1),
-    rgb(59, 130, 246, 1),
-    rgb(219, 234, 254, 1)
-  );
-
-  color: transparent;
-  background-clip: text;
+color: var(--primary-text-color);
 }
 
 .about-text p {
@@ -193,18 +191,42 @@ p {
   color: #ffff;
 }
 
-.work-container {
+.work-section{
+margin-top: 10rem;
+  background-color: var(--primary-grayscale-white);
+  padding: 4rem 2rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+
+}
+
+
+.work-container h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+  font-family: var(--primary-font);
+}
+
+.work-container h2 span{
+  background: linear-gradient(to top, #070f1e 0%, #1e3b70 50%, #0059ff 100%);
+  color: transparent;
+  background-clip: text;
+
+}
+
+.work-container p{
+  font-size: 20px;
+  max-width: 600px;
 }
 
 .work-content {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   max-width: 1400px;
   flex-wrap: wrap;
+
 }
 </style>

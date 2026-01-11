@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { isScrolled } from '@/composables/NavBarScroll'
 import BtnComponent from './BtnComponent.vue'
+
+
+
 </script>
 <template>
   <nav :class="['nav', { 'navbar-scrolled': isScrolled }]">
@@ -27,7 +30,6 @@ import BtnComponent from './BtnComponent.vue'
   left: 0;
   color: var(--navbar-color);
   padding: 1.5rem;
-  font-family: var(--secondary-font);
   font-weight: 600;
   transition: 0.3s ease-in-out;
 }
@@ -44,6 +46,8 @@ import BtnComponent from './BtnComponent.vue'
 
 li {
   list-style: none;
+  font-family: var(--secondary-font);
+
 }
 
 .list {

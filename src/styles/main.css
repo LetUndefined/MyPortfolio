@@ -10,6 +10,8 @@
   --primary-font: 'Roboto';
   --secondary-font: 'Atkinson Hyperlegible Mono';
   --primary-white: #ffffff;
+  --primary-grayscale-white: #f7f7f7;
+  --primary-text-color: #3a71d8;
 }
 
 * {

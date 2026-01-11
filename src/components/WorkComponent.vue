@@ -14,7 +14,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <v-card class="mx-auto my-12" max-width="374">
+  <v-card class=" mx-4 my-12" max-width="6OO">
     <v-img height="250" :src="props.image" cover>
       <p class="year">{{ props.year }}</p>
       <h4 class="title">{{ props.title }}</h4>
@@ -54,7 +54,12 @@ const props = defineProps<{
 .v-card {
   position: relative;
   border-radius: 30px;
-  width: 500px;
+  width: 400px;
+  min-height: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 1px 10px -5px black;
 }
 
 .year {
@@ -78,6 +83,13 @@ const props = defineProps<{
   left: 16px;
   font-size: 12px;
   color: var(--primary-white);
+}
+
+.v-card-text {
+  flex-grow: 1;
+  min-height: 100px;
+  max-height: 100px;
+  overflow: hidden;
 }
 
 .language-chip .v-chip {
