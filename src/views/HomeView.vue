@@ -191,6 +191,9 @@ color: var(--primary-text-color);
 }
 
 .quote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid black;
   border-radius: 20px;
   background: rgb(20, 31, 55);

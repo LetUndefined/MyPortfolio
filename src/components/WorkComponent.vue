@@ -21,9 +21,7 @@ const props = defineProps<{
       <p class="subtitle">{{ props.subtitle }}</p>
     </v-img>
 
-    <v-card-item>
-      <v-card-subtitle> </v-card-subtitle>
-    </v-card-item>
+
 
     <v-card-text>
       <div class="my-4 text-subtitle-1">
@@ -81,6 +79,8 @@ const props = defineProps<{
   top: 20px;
   left: 26px;
   color: var(--primary-white);
+  text-shadow: 1px 2px  black;
+
 }
 
 .title {
@@ -89,6 +89,7 @@ const props = defineProps<{
   left: 24px;
   font-size: 26px;
   color: var(--primary-white);
+  text-shadow: 1px 2px  black;
 }
 
 .subtitle {
@@ -97,11 +98,17 @@ const props = defineProps<{
   left: 26px;
   font-size: 12px;
   color: var(--primary-white);
+  text-shadow: 1px 2px  black;
+
 }
 
 
 .v-card-text {
-  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0rem;
+  padding: 1rem;
   min-height: 100px;
   max-height: 100px;
   overflow: hidden;

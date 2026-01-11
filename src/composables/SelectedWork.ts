@@ -1,19 +1,25 @@
 
 import type { Work } from '@/models/Interface'
 import { ref, type Ref } from 'vue'
-// import blackjack from '@/assets/images/blackjack.png'
-// import portfolio from '@/assets/images/portfolio.png'
-// import simon from '@/assets/images/simonsays.png'
-// import cryptoTracker from '@/assets/images/cryptotracker.png'
-import blue from '@/assets/images/blue.jpg'
-import purple from '@/assets/images/purple.jpg'
-import orange from '@/assets/images/orange.jpg'
-import red from '@/assets/images/red.jpg'
-import grey from '@/assets/images/grey.jpg'
+import blackjack from '@/assets/images/blackjack.png'
+import portfolio from '@/assets/images/portfolio.png'
+import simon from '@/assets/images/simonsays.png'
+import cryptoTracker from '@/assets/images/cryptotracker.png'
+
 
 const workArray: Ref<Work[]> = ref([
   {
-    image: purple,
+    image: blackjack,
+    title: 'Automated Trading',
+    subtitle: "Created profitable automated trading strategies",
+    year: '2025',
+    language: ['MQL5', 'AI', "Claude Code"],
+    information: 'By combining AI with data analysis, I created and optimized profitable trading strategies refined for real-world market conditions',
+    projectLink: '',
+    githubLink: ''
+  },
+  {
+    image: blackjack,
     title: 'Blackjack',
     subtitle: 'Functioning Blackjack game',
     year: '2025',
@@ -23,7 +29,7 @@ const workArray: Ref<Work[]> = ref([
     githubLink: 'https://github.com/LetUndefined/Blackjack',
   },
   {
-    image: orange,
+    image: portfolio,
     title: 'Portfolio',
     subtitle: 'First Portfolio',
     year: '2025',
@@ -33,7 +39,7 @@ const workArray: Ref<Work[]> = ref([
     githubLink: 'https://github.com/LetUndefined/Portfolio',
   },
   {
-    image: red,
+    image: simon,
     title: 'SimonSays',
     subtitle: 'A game of SimonSays',
     year: '2025',
@@ -43,7 +49,7 @@ const workArray: Ref<Work[]> = ref([
     githubLink: 'https://github.com/LetUndefined/SimonSays-Game',
   },
   {
-    image: grey,
+    image: cryptoTracker,
     title: 'Crypto Tracker',
     subtitle: 'Track the crypto market',
     year: '2025',
@@ -53,7 +59,7 @@ const workArray: Ref<Work[]> = ref([
     githubLink: 'https://github.com/LetUndefined/CryptoTracker',
   },
   {
-    image: blue,
+    image: 'blue',
     title: 'Coming soon',
     subtitle: 'More projects coming soon',
     year: '2026',
