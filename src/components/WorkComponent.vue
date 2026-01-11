@@ -60,19 +60,33 @@ const props = defineProps<{
   display: flex;
   flex-direction: column;
   box-shadow: 0px 1px 10px -5px black;
+  transition: 0.3s ease-in-out;
+}
+
+.v-card:hover{
+  box-shadow: 1px 1px 10px black;
+}
+
+.v-img{
+  transition: 0.3s ease-in-out;
+
+}
+
+.v-card:hover .v-img{
+  transform: scale(1.05);
 }
 
 .year {
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 26px;
   color: var(--primary-white);
 }
 
 .title {
   position: absolute;
   top: 160px;
-  left: 14px;
+  left: 24px;
   font-size: 26px;
   color: var(--primary-white);
 }
@@ -80,10 +94,11 @@ const props = defineProps<{
 .subtitle {
   position: absolute;
   top: 200px;
-  left: 16px;
+  left: 26px;
   font-size: 12px;
   color: var(--primary-white);
 }
+
 
 .v-card-text {
   flex-grow: 1;
@@ -106,8 +121,7 @@ const props = defineProps<{
 }
 
 .icons img {
-  display: flex;
-  justify-content: center;
+  display: block;
   width: 1rem;
   margin-right: 3px;
 }

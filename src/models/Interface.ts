@@ -14,3 +14,10 @@ export interface Work {
   projectLink: string
   githubLink: string
 }
+
+
+export interface Skills {
+  image: string
+  skill: string
+  chip: string
+}

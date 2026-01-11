@@ -53,10 +53,10 @@ const { nameArray, getRandomColor, onListChange } = useDraggableBlocks()
 
 .block:hover {
   cursor: pointer;
-  animation: test 0.3s ease-in-out;
+  animation: wiggle 0.3s ease-in-out;
 }
 
-@keyframes test {
+@keyframes wiggle {
   0% {
     transform: rotate(0deg);
   }

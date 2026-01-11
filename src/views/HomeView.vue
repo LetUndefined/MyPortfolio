@@ -10,6 +10,9 @@ import { onMounted, onUnmounted } from 'vue'
 import { handleScroll } from '@/composables/NavBarScroll'
 import WorkComponent from '@/components/WorkComponent.vue'
 import { workArray } from '@/composables/SelectedWork'
+import SkillsAndExpertise from '@/components/SkillsAndExpertise.vue'
+import { skillsArray } from '@/composables/SkillsAndExpertise'
+
 
 
 onMounted(() => {
@@ -22,7 +25,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="hero-container">
+  <section class="hero-section">
     <NavBar />
     <div class="hero-content">
       <p class="subtitle">digital creator / developer / designer</p>
@@ -36,7 +39,7 @@ onUnmounted(() => {
       </BtnComponent>
     </div>
   </section>
-  <section class="about-content">
+  <section class="about-section">
     <div class="about-text">
       <h2>
         Creative mind, <br />
@@ -92,10 +95,21 @@ onUnmounted(() => {
       </div>
     </div>
   </section>
+  <section class="expertise-section">
+    <div class="expertise-container">
+      <h2>Skills & <span>Expertise</span></h2>
+      <p>A diverse toolkit built through years of learning, experimentation, and real-world projects.</p>
+    <div class="expertise-content">
+      <SkillsAndExpertise v-for="(skill, index) in skillsArray" :key="index" :image="skill.image" :skill="skill.skill" :chip="skill.chip"/>
+    </div>
+    </div>
+
+  </section>
 </template>
 
 <style scoped>
-.hero-container {
+
+.hero-section {
   background-image: linear-gradient(to top, #070f1e 0%, #1e3b70 50%, #070f1e 100%);
   display: flex;
   justify-content: center;
@@ -132,17 +146,19 @@ p {
   text-align: center;
 }
 
-.about-content {
+.about-section {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   margin-top: 10rem;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
   padding: 0 2rem;
+}
+
+.about-section > * {
+  max-width: 1400px;
+  width: 100%;
 }
 
 .about-text {
@@ -177,7 +193,7 @@ color: var(--primary-text-color);
 .quote-container {
   border: 1px solid black;
   border-radius: 20px;
-  background: linear-gradient(to right, rgb(20, 31, 55));
+  background: rgb(20, 31, 55);
   padding: 4rem 12rem;
   margin-top: 4rem;
   box-shadow: 0px 4px 10px black;
@@ -191,32 +207,36 @@ color: var(--primary-text-color);
   color: #ffff;
 }
 
-.work-section{
-margin-top: 10rem;
+.work-section {
+  margin-top: 10rem;
   background-color: var(--primary-grayscale-white);
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
+.work-container {
+  max-width: 1400px;
+  width: 100%;
 }
 
 
-.work-container h2 {
+
+.work-container h2,
+.expertise-container h2 {
   font-size: 4rem;
   margin-bottom: 1rem;
-  align-self: flex-start;
   font-family: var(--primary-font);
 }
 
-.work-container h2 span{
-  background: linear-gradient(to top, #070f1e 0%, #1e3b70 50%, #0059ff 100%);
-  color: transparent;
-  background-clip: text;
-
+.work-container h2 span,
+.expertise-container h2 span {
+  color: var(--primary-text-color);
 }
 
-.work-container p{
+.work-container p,
+.expertise-container p {
   font-size: 20px;
   max-width: 600px;
 }
@@ -227,6 +247,32 @@ margin-top: 10rem;
   align-items: center;
   max-width: 1400px;
   flex-wrap: wrap;
-
 }
+
+.expertise-section {
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.expertise-container {
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.expertise-content {
+margin-top: 2rem;
+display: flex;
+justify-content: center;
+align-items: center ;
+flex-wrap: wrap;
+gap: 2rem;
+}
+
 </style>

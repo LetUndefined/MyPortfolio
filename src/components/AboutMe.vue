@@ -21,7 +21,7 @@ const props = defineProps<{
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  border: 1px solid rgb(205, 204, 207, 0.4);
+  border: 1px solid rgba(205, 204, 207, 0.4);
   flex-direction: column;
   box-shadow: 0px 10px 10px -10px black;
   border-radius: 20px;
@@ -61,7 +61,7 @@ const props = defineProps<{
 
 .content {
   display: flex;
-  justify-content: flex;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
   gap: 1.5rem;
@@ -73,12 +73,10 @@ const props = defineProps<{
   padding: 1rem;
   background: linear-gradient(
     to right,
-    rgb(30, 58, 138, 0.8),
-    rgb(59, 130, 246, 0.8),
-    rgb(219, 234, 254, 0.8)
+    rgba(30, 58, 138, 0.8),
+    rgba(59, 130, 246, 0.8),
+    rgba(219, 234, 254, 0.8)
   );
-
-  color: white;
   backdrop-filter: blur(100px);
   box-shadow: 0px 2px 10px -5px black;
 }

@@ -25,7 +25,7 @@ const workArray: Ref<Work[]> = ref([
   {
     image: orange,
     title: 'Portfolio',
-    subtitle: 'First Portofolio',
+    subtitle: 'First Portfolio',
     year: '2025',
     language: ['Javascript', 'HTML', 'SCSS'],
     information: 'This marked the beginning of my journey, my first ever portfolio.',
