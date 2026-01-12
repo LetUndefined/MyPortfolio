@@ -1,23 +1,30 @@
 <script setup lang="ts">
 import { isScrolled } from '@/composables/NavBarScroll'
 import BtnComponent from './BtnComponent.vue'
-
-
-
 </script>
 <template>
   <nav :class="['nav', { 'navbar-scrolled': isScrolled }]">
     <div class="navbar">
       <h3>Sandro</h3>
       <ul class="list">
-        <li>Home</li>
-        <li>Projects</li>
-        <li>Skills</li>
-        <li>Contact</li>
+        <li>
+          <a href="#hero-section">Home</a>
+        </li>
+        <li>
+          <a href="#work-section">Projects</a>
+        </li>
+        <li>
+          <a href="#skill-section">Skills</a>
+        </li>
+        <li>
+          <a href="#contact-section">Contact</a>
+        </li>
       </ul>
-      <BtnComponent>
-        <span>Let's Talk</span>
-      </BtnComponent>
+      <a href="#contact-section">
+        <BtnComponent>
+          <span>Let's Talk</span>
+        </BtnComponent>
+      </a>
     </div>
   </nav>
 </template>
@@ -46,7 +53,12 @@ import BtnComponent from './BtnComponent.vue'
 
 li {
   list-style: none;
+}
+
+li a{
+  text-decoration: none;
   font-family: var(--secondary-font);
+  color: var(--navbar-color);
 
 }
 
@@ -63,5 +75,9 @@ li {
   color: black;
   z-index: 9999;
   box-shadow: 1px 1px 10px black;
+}
+
+.navbar-scrolled li a {
+  color: black;
 }
 </style>

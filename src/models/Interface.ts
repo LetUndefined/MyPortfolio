@@ -15,6 +15,11 @@ export interface Work {
   information: string
   projectLink: string
   githubLink: string
+  detailedDescription?: string
+  features?: string[]
+  challenges?: string
+  technologies?: string[]
+  isAIGenerated?: boolean
 }
 
 export interface Skills {

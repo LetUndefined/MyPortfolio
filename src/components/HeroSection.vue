@@ -36,9 +36,11 @@ const onListChange = (event: void) => {
       Crafting digital experiences that blend creativity with functionality. Drag the tiles, change
       colors, and explore.
     </p>
-    <BtnComponent>
-      <span>Explore My Work</span>
-    </BtnComponent>
+    <a href="#work-section">
+      <BtnComponent>
+        <span>Explore My Work</span>
+      </BtnComponent>
+    </a>
   </div>
 </template>
 

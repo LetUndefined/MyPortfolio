@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import github from '@/assets/icons/github.svg'
 import link from '@/assets/icons/square-arrow-out-up-right.svg'
+
 const props = defineProps<{
   image: string
   title: string
@@ -10,37 +11,53 @@ const props = defineProps<{
   information: string
   projectLink: string
   githubLink: string
+  isAIGenerated?: boolean
 }>()
+
+const emit = defineEmits<{
+  'view-details': []
+}>()
+
+const viewDetails = () => {
+  emit('view-details')
+}
 </script>
 
 <template>
-  <v-card class=" mx-4 my-12" max-width="6OO">
-    <v-img height="250" :src="props.image" cover gradient="to top, rgba(0,0,0,.6), transparent">
-      <p class="year">{{ props.year }}</p>
-      <h4 class="title">{{ props.title }}</h4>
-      <p class="subtitle">{{ props.subtitle }}</p>
-    </v-img>
+  <v-card class="mx-4 my-12" max-width="6OO" :class="{ 'ai-generated': props.isAIGenerated }">
+    <div v-if="props.isAIGenerated" class="ai-badge">Collaboration with AI</div>
+    <div @click="viewDetails" class="card-clickable">
+      <v-img height="250" :src="props.image" cover gradient="to top, rgba(0,0,0,.6), transparent">
+        <p class="year">{{ props.year }}</p>
+        <h4 class="title">{{ props.title }}</h4>
+        <p class="subtitle">{{ props.subtitle }}</p>
+      </v-img>
 
+      <v-card-text>
+        <div class="my-4 text-subtitle-1">
+          <div v-html="props.information.replace('**Private repository**', '<strong>Private repository</strong>')"></div>
+        </div>
+      </v-card-text>
 
-
-    <v-card-text>
-      <div class="my-4 text-subtitle-1">
-        <div>{{ props.information }}</div>
-      </div>
-    </v-card-text>
-
-    <div class="px-4 mb-2">
-      <div class="language-chip">
-        <v-chip v-for="(chip, index) in props.language" :key="index">{{ chip }}</v-chip>
+      <div class="px-4 mb-2">
+        <div class="language-chip">
+          <v-chip v-for="(chip, index) in props.language" :key="index">{{ chip }}</v-chip>
+        </div>
       </div>
     </div>
 
     <div class="px-4 mb-2 icons">
-      <v-chip :href="projectLink" target="_blank" class="project-chip">
+      <v-chip
+        v-if="projectLink"
+        :href="projectLink"
+        target="_blank"
+        class="project-chip"
+        @click.stop
+      >
         <img :src="link" />
         <p>View Project</p>
       </v-chip>
-      <v-chip :href="githubLink" target="_blank" class="github-chip">
+      <v-chip v-if="githubLink" :href="githubLink" target="_blank" class="github-chip" @click.stop>
         <img :src="github" />
         <p>Code</p>
       </v-chip>
@@ -61,18 +78,45 @@ const props = defineProps<{
   transition: 0.3s ease-in-out;
 }
 
-.v-card:hover{
+.v-card:hover {
   box-shadow: 1px 1px 10px black;
 }
 
-.v-img{
+.v-card.ai-generated {
+  border: 2px solid #9c27b0;
+  box-shadow: 0px 2px 15px -3px rgba(156, 39, 176, 0.3);
+}
+
+.v-card.ai-generated:hover {
+  box-shadow: 0px 4px 20px rgba(156, 39, 176, 0.5);
+}
+
+.ai-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(156, 39, 176, 0.4);
+}
+
+.card-clickable {
+  cursor: pointer;
+}
+
+.v-img {
   position: relative;
   transition: 0.3s ease-in-out;
 }
 
-
-
-.v-card:hover .v-img{
+.v-card:hover .v-img {
   transform: scale(1.05);
 }
 
@@ -81,8 +125,7 @@ const props = defineProps<{
   top: 20px;
   left: 26px;
   color: var(--primary-white);
-  text-shadow: 1px 2px  black;
-
+  text-shadow: 1px 2px black;
 }
 
 .title {
@@ -91,7 +134,7 @@ const props = defineProps<{
   left: 24px;
   font-size: 26px;
   color: var(--primary-white);
-  text-shadow: 1px 2px  black;
+  text-shadow: 1px 2px black;
 }
 
 .subtitle {
@@ -100,10 +143,8 @@ const props = defineProps<{
   left: 26px;
   font-size: 12px;
   color: var(--primary-white);
-  text-shadow: 1px 2px  black;
-
+  text-shadow: 1px 2px black;
 }
-
 
 .v-card-text {
   display: flex;
@@ -122,6 +163,10 @@ const props = defineProps<{
 
 .language-chip :deep(.v-chip__content) {
   font-size: 12px;
+}
+
+.icons {
+  min-height: 60px;
 }
 
 .icons .v-chip {
