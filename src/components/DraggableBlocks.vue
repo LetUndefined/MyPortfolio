@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { useDraggableBlocks } from '@/composables/useDraggableBlocks'
 import Draggable from 'vuedraggable'
+import { ref, onMounted } from 'vue'
 
 const { nameArray, getRandomColor, onListChange } = useDraggableBlocks()
+const hasAnimated = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    hasAnimated.value = true
+  }, 1000)
+})
 </script>
 
 <template>
@@ -14,7 +22,11 @@ const { nameArray, getRandomColor, onListChange } = useDraggableBlocks()
     :animation="200"
   >
     <template #item="{ element, index }">
-      <div class="block-container" :style="{ animationDelay: `${index * 0.1}s` }">
+      <div
+        class="block-container"
+        :class="{ 'no-animation': hasAnimated }"
+        :style="{ animationDelay: `${index * 0.1}s` }"
+      >
         <div
           class="block"
           :style="{ backgroundColor: element.color }"
@@ -40,6 +52,10 @@ const { nameArray, getRandomColor, onListChange } = useDraggableBlocks()
   display: inline-block;
   margin: 0.5rem;
   animation: spinIn 0.8s ease-out backwards;
+}
+
+.block-container.no-animation {
+  animation: none;
 }
 
 @keyframes spinIn {

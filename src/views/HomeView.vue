@@ -31,7 +31,7 @@ onUnmounted(() => {
 
 <template>
   <section class="hero-section">
-    <NavBar />
+    <NavBar :class="{ 'nav-hidden': showProjectDetail }" />
     <div class="hero-content" id="hero-section">
       <p class="subtitle">digital creator / developer / designer</p>
       <DraggableBlocks />
@@ -207,5 +207,11 @@ p {
 .contact-section{
   min-height: 100vh;
   padding-top: 4rem;
+}
+
+:deep(.nav-hidden) {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 </style>
