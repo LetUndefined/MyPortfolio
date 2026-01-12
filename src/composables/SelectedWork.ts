@@ -39,11 +39,11 @@ const workArray: Ref<Work[]> = ref([
     year: '2025',
     language: ['PineScript', 'TradingView', 'AI'],
     information:
-      'Custom TradingView indicator that monitors multiple timeframes and alerts me to high-probability trade setups. Fully AI-generated and rigorously tested.',
+      'Custom TradingView indicator that monitors multiple timeframes and alerts me to high-probability trade setups. Fully AI-generated and rigorously tested. **Private repository**',
     projectLink: '',
     githubLink: '',
     detailedDescription:
-      'As a trader who loves the markets but doesn\'t have time to watch charts all day, I created this semi-automated trading system using AI as my coding partner. I provided the trading logic and requirements, while AI handled the PineScript implementation. Together we solved complex problems: designing robust backtesting systems to validate strategies across months of historical data, handling timezone conversions for accurate session-based calculations, building a sophisticated alerting system that filters noise and only notifies on high-probability setups, and creating clear visual breakdowns with color-coded EMAs, dynamic dashboards, and intuitive trade markers. The indicator analyzes 1-hour bias, 30-minute torsion, 5-minute alignment, and 1-minute entry triggers across multiple timeframes simultaneously, validating all criteria before alerting me when everything aligns perfectly.',
+      'As a trader who loves the markets but doesn\'t have time to watch charts all day, I created this semi-automated trading system using AI as my coding partner. I provided the trading logic and requirements, while AI handled the PineScript implementation. Together we solved complex problems: designing robust backtesting systems to validate strategies across months of historical data, handling timezone conversions for accurate session-based calculations, building a sophisticated alerting system that filters noise and only notifies on high-probability setups, and creating clear visual breakdowns with color-coded EMAs, dynamic dashboards, and intuitive trade markers. The indicator analyzes 1-hour bias, 30-minute torsion, 5-minute alignment, and 1-minute entry triggers across multiple timeframes simultaneously, validating all criteria before alerting me when everything aligns perfectly. Due to the proprietary nature of the trading strategy, the code is not publicly available.',
     features: [
       'Multi-timeframe analysis (1H bias, 30m torsion, 5m read, 1m entry)',
       'Automated EMA cross detection with bias validation',
@@ -61,27 +61,29 @@ const workArray: Ref<Work[]> = ref([
   },
   {
     image: signal,
-    title: 'Trading Signal Bot',
-    subtitle: 'Telegram bot for TradingView signals',
+    title: 'MT5 Telegram Alert EA',
+    subtitle: 'Automated trade execution with Telegram alerts',
     year: '2025',
-    language: ['Python', 'FastAPI', 'Telegram API'],
+    language: ['MQL5', 'Telegram API', 'MT5'],
     information:
-      'Automated Telegram bot that receives TradingView webhook signals and forwards them with interactive trade management options. Created with AI assistance.',
+      'MT5 Expert Advisor that monitors my custom indicator and sends interactive Telegram alerts with one-click trade execution. Created with AI assistance. **Private repository**',
     projectLink: '',
     githubLink: '',
     detailedDescription:
-      'A sophisticated Telegram bot that bridges TradingView alerts with traders via Telegram. The bot receives webhook signals from TradingView, processes them, and presents interactive buttons for traders to select stop loss, profit targets, and contract sizes. Built with Python and FastAPI, it features real-time position calculation for futures contracts (NQ, ES, GC, SI) and provides a seamless user experience through Telegram\'s inline keyboards.',
+      'A sophisticated MT5 Expert Advisor (EA) that bridges my PineScript indicator signals with real-time Telegram notifications and automated trade execution. The EA continuously monitors the custom indicator, detects both warning and confirmed signals, and sends interactive Telegram messages with buttons for ATR percentage selection (70%, 80%, 90%, 100%) and risk percentage options. Once selections are made, it automatically calculates position sizes, places the trade with proper stop loss and take profit levels, and handles the entire execution process. Built with AI assistance to solve complex challenges like multi-step button interactions, accurate position sizing with tick value calculations, preventing duplicate signals, and managing trade state across multiple timeframes. Due to the proprietary nature of the trading strategy, the code is not publicly available.',
     features: [
-      'Real-time TradingView webhook integration',
-      'Interactive 3-step selection process (SL → TP → Contracts)',
-      'Automatic position sizing calculations',
-      'Support for multiple futures instruments',
-      'Test mode for paper trading',
-      'VPS deployment with PM2/systemd',
+      'Real-time indicator monitoring and signal detection',
+      'Interactive Telegram buttons for ATR and risk selection',
+      'Automated position sizing based on account risk percentage',
+      'One-click trade execution from Telegram',
+      'Multi-timeframe signal validation (warnings vs confirmed)',
+      'Signal expiry management (10-minute timeout)',
+      'Duplicate position prevention',
+      'Support for both Discord and Telegram alerts',
     ],
     challenges:
-      'The main challenges included handling asynchronous webhook requests from TradingView while maintaining Telegram bot responsiveness, implementing accurate position size calculations for different futures instruments, and designing an intuitive multi-step selection flow. Managing state for multiple concurrent trade signals and ensuring the bot remained stable on a VPS required careful error handling and testing.',
-    technologies: ['Python', 'FastAPI', 'Telegram Bot API', 'Webhooks', 'Async/Await', 'VPS Deployment'],
+      'Working with AI to build this required solving several complex problems: 1) Button interactions - Implementing a two-step selection process (ATR → Risk) using Telegram inline keyboards and callback queries. 2) Position sizing - Correctly calculating lot sizes using tick values, contract sizes, and account risk percentages for accurate dollar-based risk management. 3) State management - Tracking pending trades, preventing duplicate signals, and handling signal expiry across multiple symbols. 4) Signal filtering - Ignoring stale signals from before EA startup and only processing new signals. 5) Trade execution - Handling different order filling modes (IOC, FOK, RETURN) and broker-specific requirements. The EA polls Telegram API for button clicks and executes trades seamlessly without manual intervention.',
+    technologies: ['MQL5', 'MetaTrader 5', 'Telegram Bot API', 'Expert Advisors', 'Algorithmic Trading'],
     isAIGenerated: true,
   },
   {

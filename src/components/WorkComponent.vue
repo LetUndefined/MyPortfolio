@@ -27,7 +27,7 @@ const viewDetails = () => {
   <v-card class="mx-4 my-12" max-width="6OO" :class="{ 'ai-generated': props.isAIGenerated }">
     <div v-if="props.isAIGenerated" class="ai-badge">Collaboration with AI</div>
     <div @click="viewDetails" class="card-clickable">
-      <v-img height="250" :src="props.image" cover gradient="to top, rgba(0,0,0,.6), transparent">
+      <v-img height="250" :src="props.image" cover gradient="to top, rgba(0,0,0, 0.9), transparent">
         <p class="year">{{ props.year }}</p>
         <h4 class="title">{{ props.title }}</h4>
         <p class="subtitle">{{ props.subtitle }}</p>
@@ -134,7 +134,6 @@ const viewDetails = () => {
   left: 24px;
   font-size: 26px;
   color: var(--primary-white);
-  text-shadow: 1px 2px black;
 }
 
 .subtitle {
@@ -143,7 +142,6 @@ const viewDetails = () => {
   left: 26px;
   font-size: 12px;
   color: var(--primary-white);
-  text-shadow: 1px 2px black;
 }
 
 .v-card-text {
