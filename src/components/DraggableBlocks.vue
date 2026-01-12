@@ -13,8 +13,8 @@ const { nameArray, getRandomColor, onListChange } = useDraggableBlocks()
     class="draggable-list"
     :animation="200"
   >
-    <template #item="{ element }">
-      <div class="block-container">
+    <template #item="{ element, index }">
+      <div class="block-container" :style="{ animationDelay: `${index * 0.1}s` }">
         <div
           class="block"
           :style="{ backgroundColor: element.color }"
@@ -39,6 +39,18 @@ const { nameArray, getRandomColor, onListChange } = useDraggableBlocks()
 .block-container {
   display: inline-block;
   margin: 0.5rem;
+  animation: spinIn 0.8s ease-out backwards;
+}
+
+@keyframes spinIn {
+  0% {
+    transform: rotateY(360deg) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0deg) scale(1);
+    opacity: 1;
+  }
 }
 
 .block {
