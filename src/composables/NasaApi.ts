@@ -6,7 +6,7 @@ export const apiData: Ref<Nasa | null> = ref(null)
 
 export const getApi = async () => {
   try {
-    const response = await fetch('https://api.open-notify.org/astros.json')
+    const response = await fetch('https://corsproxy.io/?http://api.open-notify.org/astros.json')
 
     if(!response.ok){
       console.log('Failed to fetch data')
