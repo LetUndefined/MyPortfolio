@@ -29,3 +29,8 @@ export interface Skills {
   color: string
   iconColor?: string
 }
+
+export interface Nasa {
+  number: number,
+  people: Array<{craft: string, name: string}>
+}

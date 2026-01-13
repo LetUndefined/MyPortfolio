@@ -11,6 +11,8 @@ import { skillsArray } from '@/composables/SkillsAndExpertise'
 import ContactSection from '@/components/ContactSection.vue'
 import ProjectDetail from '@/components/ProjectDetail.vue'
 import type { Work } from '@/models/Interface'
+import { apiData, getApi } from '@/composables/NasaApi'
+
 
 const showProjectDetail = ref(false)
 const selectedProject = ref<Work | null>(null)
@@ -20,8 +22,12 @@ const openProjectDetail = (work: Work) => {
   showProjectDetail.value = true
 }
 
-onMounted(() => {
+onMounted( async() => {
   window.addEventListener('scroll', handleScroll)
+   const data = await getApi()
+   if(data) {
+    apiData.value = data
+   }
 })
 
 onUnmounted(() => {
@@ -88,6 +94,13 @@ onUnmounted(() => {
           :color="skill.color"
           :icon-color="skill.iconColor"
         />
+      </div>
+
+      <div class="space-people-container">
+        <div class="space-badge">LIVE FROM NASA</div>
+        <h3 class="space-count">{{ apiData?.number }}</h3>
+        <p class="space-text">humans currently floating around Earth</p>
+        <p class="space-subtext">(probably having a better day than you)</p>
       </div>
     </div>
   </section >
@@ -202,6 +215,71 @@ p {
 
 .expertise-container p {
   text-align: center;
+}
+
+.space-people-container {
+  margin-top: 4rem;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 30px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.space-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.space-count {
+  font-size: 6rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(96, 165, 250, 0.5);
+}
+
+.space-text {
+  color: #e5e7eb;
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.space-subtext {
+  color: #9ca3af;
+  font-size: 1rem;
+  font-style: italic;
+  margin: 0;
 }
 
 .contact-section{
