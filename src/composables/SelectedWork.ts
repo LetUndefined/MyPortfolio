@@ -7,6 +7,7 @@ import cryptoTracker from '@/assets/images/cryptotracker.png'
 import trading from '@/assets/images/trading.png'
 import pinescript from '@/assets/images/pinescript.png'
 import signal from '@/assets/images/signal.png'
+import blue from '@/assets/images/blue.jpg'
 
 const workArray: Ref<Work[]> = ref([
   {
@@ -179,7 +180,7 @@ const workArray: Ref<Work[]> = ref([
   },
 
   {
-    image: 'blue',
+    image: blue,
     title: 'Coming soon',
     subtitle: 'More projects coming soon',
     year: '2026',
