@@ -33,13 +33,32 @@ const props = defineProps<{
 <style scoped>
 .v-card {
   position: relative;
-  border-radius: 10px;
+  border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 300px;
   height: 200px;
-  box-shadow: 0px 1px 10px -5px black;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.v-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.v-card:hover {
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
 }
 
 .v-card::before {
@@ -50,9 +69,14 @@ const props = defineProps<{
   right: 0;
   bottom: 0;
   height: 10px;
-  background-color: var(--icon-bg-color);
+  background: linear-gradient(90deg, var(--icon-bg-color) 0%, color-mix(in srgb, var(--icon-bg-color) 70%, white) 100%);
   z-index: 1;
-  border-radius: 20px;
+  border-radius: 30px;
+  transition: height 0.3s ease-in-out;
+}
+
+.v-card:hover::before {
+  height: 15px;
 }
 
 .v-card-item > * {
@@ -64,12 +88,19 @@ const props = defineProps<{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .image-container {
   margin-top: 1rem;
   padding: 0.5rem;
-  border-radius: 10px;
-  box-shadow: 0px 0px 3px -1px black;
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.v-card:hover .image-container {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
 }
 </style>

@@ -87,6 +87,52 @@ const workArray: Ref<Work[]> = ref([
     isAIGenerated: true,
   },
   {
+    image: cryptoTracker,
+    title: 'Crypto Tracker',
+    subtitle: 'Track the crypto market',
+    year: '2025',
+    language: ['Vue', 'HTML', 'CSS', 'Typescript'],
+    information:
+      'Small project to track the price of cryptocurrencies using APIs. First collaboration with AI',
+    projectLink: 'https://letundefined.github.io/CryptoTracker/',
+    githubLink: 'https://github.com/LetUndefined/CryptoTracker',
+    detailedDescription:
+      'A real-time cryptocurrency tracking application that displays live market data. This project marked my transition to modern frameworks and my first collaboration with AI for development. It demonstrates my ability to work with external APIs and manage asynchronous data.',
+    features: [
+      'Real-time price updates',
+      'Multiple cryptocurrency support',
+      'Price change indicators',
+      'Search functionality',
+      'API integration',
+    ],
+    challenges:
+      'Managing API calls, handling loading states, and ensuring data updates smoothly were key challenges. This was also my first time collaborating with AI for development.',
+    technologies: ['Vue 3', 'TypeScript', 'REST APIs', 'CSS3', 'Composition API'],
+    isAIGenerated: true,
+  },{
+    image: simon,
+    title: 'SimonSays',
+    subtitle: 'A game of SimonSays',
+    year: '2025',
+    language: ['Javascript', 'HTML', 'CSS'],
+    information: 'Created a Simon Says game, showcasing programming and game design skills.',
+    projectLink: 'https://letundefined.github.io/SimonSays-Game/',
+    githubLink: 'https://github.com/LetUndefined/SimonSays-Game',
+    detailedDescription:
+      'An interactive memory game that challenges players to repeat increasingly complex sequences. This project demonstrates my ability to create engaging user experiences while managing complex game states and user interactions.',
+    features: [
+      'Progressive difficulty levels',
+      'Sound effects and visual feedback',
+      'High score tracking',
+      'Smooth animations',
+      'Responsive touch/click controls',
+      'Game over and restart functionality',
+    ],
+    challenges:
+      'Implementing the pattern recognition logic and ensuring smooth animations synchronized with sound effects was challenging. Managing timing and user input validation required careful attention to detail.',
+    technologies: ['JavaScript', 'HTML5', 'CSS3'],
+  },
+  {
     image: blackjack,
     title: 'Blackjack',
     subtitle: 'Functioning Blackjack game',
@@ -131,53 +177,7 @@ const workArray: Ref<Work[]> = ref([
       'Learning CSS layout techniques and making the site responsive across different devices was a significant challenge. Understanding SCSS and organizing styles efficiently required a lot of research and iteration.',
     technologies: ['JavaScript', 'HTML5', 'SCSS', 'Responsive Design'],
   },
-  {
-    image: simon,
-    title: 'SimonSays',
-    subtitle: 'A game of SimonSays',
-    year: '2025',
-    language: ['Javascript', 'HTML', 'CSS'],
-    information: 'Created a Simon Says game, showcasing programming and game design skills.',
-    projectLink: 'https://letundefined.github.io/SimonSays-Game/',
-    githubLink: 'https://github.com/LetUndefined/SimonSays-Game',
-    detailedDescription:
-      'An interactive memory game that challenges players to repeat increasingly complex sequences. This project demonstrates my ability to create engaging user experiences while managing complex game states and user interactions.',
-    features: [
-      'Progressive difficulty levels',
-      'Sound effects and visual feedback',
-      'High score tracking',
-      'Smooth animations',
-      'Responsive touch/click controls',
-      'Game over and restart functionality',
-    ],
-    challenges:
-      'Implementing the pattern recognition logic and ensuring smooth animations synchronized with sound effects was challenging. Managing timing and user input validation required careful attention to detail.',
-    technologies: ['JavaScript', 'HTML5', 'CSS3'],
-  },
-  {
-    image: cryptoTracker,
-    title: 'Crypto Tracker',
-    subtitle: 'Track the crypto market',
-    year: '2025',
-    language: ['Vue', 'HTML', 'CSS', 'Typescript'],
-    information:
-      'Small project to track the price of cryptocurrencies using APIs. First collaboration with AI',
-    projectLink: 'https://letundefined.github.io/CryptoTracker/',
-    githubLink: 'https://github.com/LetUndefined/CryptoTracker',
-    detailedDescription:
-      'A real-time cryptocurrency tracking application that displays live market data. This project marked my transition to modern frameworks and my first collaboration with AI for development. It demonstrates my ability to work with external APIs and manage asynchronous data.',
-    features: [
-      'Real-time price updates',
-      'Multiple cryptocurrency support',
-      'Price change indicators',
-      'Search functionality',
-      'API integration',
-    ],
-    challenges:
-      'Managing API calls, handling loading states, and ensuring data updates smoothly were key challenges. This was also my first time collaborating with AI for development.',
-    technologies: ['Vue 3', 'TypeScript', 'REST APIs', 'CSS3', 'Composition API'],
-    isAIGenerated: true,
-  },
+
   {
     image: 'blue',
     title: 'Coming soon',
