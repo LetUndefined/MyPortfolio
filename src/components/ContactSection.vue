@@ -241,7 +241,6 @@ const handleSubmit = () => {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  ring: 2px;
   border-color: rgb(168, 85, 247);
   box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.5);
 }
