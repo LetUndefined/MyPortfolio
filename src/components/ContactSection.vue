@@ -16,7 +16,7 @@ const socialLinks: SocialLink[] = [
   { icon: Github, label: 'GitHub', href: 'https://github.com/LetUndefined' },
   { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/sandro-dangelo-80150b227/' },
   { icon: Mail, label: 'Email', href: 'mailto:sandroodangelo@hotmail.com' },
-  { icon: FileText, label: 'Resume', href: '#' },
+  { icon: FileText, label: 'Resume', href: "/files/CV-DAngelo.pdf"},
 ]
 
 const handleSubmit = () => {
@@ -80,6 +80,7 @@ const handleSubmit = () => {
                 v-for="link in socialLinks"
                 :key="link.label"
                 :href="link.href"
+                :download="link.label === 'Resume' ? '' : null "
                 class="social-link"
               >
                 <component :is="link.icon" />
