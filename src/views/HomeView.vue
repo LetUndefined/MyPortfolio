@@ -115,6 +115,42 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.hero-section::before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: red;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translate(-100);
+  animation: pulsating 5s infinite;
+  background-image: linear-gradient(to bottom right, #ed1616 0%, #2d57a6 50%, #102243 100%);
+
+}
+
+@keyframes pulsating{
+   0% {
+opacity: 0;
+
+  }
+
+
+  50% {
+    opacity: 0.4  ;
+  }
+  100% {
+
+opacity: 0;
+
+  }
 }
 
 .hero-content {
@@ -125,6 +161,7 @@ onUnmounted(() => {
   height: 100vh;
   max-width: 1400px;
   padding: 0 2rem;
+  z-index: 1;
 }
 
 p {

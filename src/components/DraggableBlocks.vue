@@ -53,7 +53,7 @@ onMounted(() => {
 .block-container {
   display: inline-block;
   margin: 0.5rem;
-  animation: spinIn 0.8s ease-out backwards;
+  animation: spinIn 0.4s ease-out backwards;
 }
 
 .block-container.no-animation {
@@ -62,11 +62,11 @@ onMounted(() => {
 
 @keyframes spinIn {
   0% {
-    transform: rotateY(360deg) scale(0.5);
+    transform: rotate(360deg) scale(0.5);
     opacity: 0;
   }
   100% {
-    transform: rotateY(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
     opacity: 1;
   }
 }
@@ -94,11 +94,30 @@ onMounted(() => {
   border-radius: 30px;
   padding: 2px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
   pointer-events: none;
+    opacity: 0;
+  transform: translate(-100);
+  animation: pulsating 5s infinite;
+  background-image: linear-gradient(to bottom right, #ed1616 0%, #2d57a6 50%, #102243 100%);
 }
+
+@keyframes pulsating{
+   0% {
+opacity: 0;
+
+  }
+
+
+  50% {
+    opacity: 1  ;
+  }
+  100% {
+
+opacity: 0;
+
+  }
+}
+
 
 .block:hover {
   cursor: pointer;
