@@ -2,6 +2,7 @@ import type { Work } from '@/models/Interface'
 import { ref, type Ref } from 'vue'
 import blackjack from '@/assets/images/blackjack.png'
 import portfolio from '@/assets/images/portfolio.png'
+import pokedex from '@/assets/images/pokedex.png'
 import simon from '@/assets/images/simonsays.png'
 import cryptoTracker from '@/assets/images/cryptotracker.png'
 import trading from '@/assets/images/trading.png'
@@ -110,6 +111,29 @@ const workArray: Ref<Work[]> = ref([
       'Managing API calls, handling loading states, and ensuring data updates smoothly were key challenges. This was also my first time collaborating with AI for development.',
     technologies: ['Vue 3', 'TypeScript', 'REST APIs', 'CSS3', 'Composition API'],
     isAIGenerated: true,
+  },
+    {
+    image: pokedex,
+    title: 'Pokedex',
+    subtitle: 'Mobile-first Pokemon Encyclopedia',
+    year: '2026',
+    language: ['Vue', 'Javascript', 'CSS', 'TypeScript'],
+    information: 'A mobile-only Vue.js application that fetches and displays Pokemon data from the PokeAPI.',
+    projectLink: 'https://letundefined.github.io/API-Pokedex/',
+    githubLink: 'https://github.com/LetUndefined/API-Pokedex',
+    detailedDescription:
+      'An interactive Pokedex application built with Vue.js specifically designed for mobile devices. This project demonstrates API integration, component architecture, and state management while providing an engaging mobile-first user experience for Pokemon enthusiasts.',
+    features: [
+      'Search and filter Pokemon',
+      'Real-time API data fetching',
+      'Detailed Pokemon information display',
+      'Mobile-optimized interface',
+      'Modern Vue.js architecture',
+      'Type-safe development with TypeScript',
+    ],
+    challenges:
+      'Working with external APIs and managing asynchronous data was a key learning experience. Designing a mobile-only interface required careful consideration of touch interactions, screen sizes, and performance optimization. Handling API responses, implementing efficient data fetching strategies, and creating a smooth user experience while data loads required careful planning and implementation.',
+    technologies: ['Vue 3', 'JavaScript', 'CSS', 'TypeScript', 'PokeAPI', 'Vite', 'Mobile-First Design'],
   },{
     image: simon,
     title: 'SimonSays',

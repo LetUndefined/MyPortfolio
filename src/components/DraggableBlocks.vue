@@ -91,11 +91,10 @@ onMounted(() => {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 30px;
   padding: 2px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
   pointer-events: none;
-    opacity: 0;
+  opacity: 0;
   transform: translate(-100);
   animation: pulsating 5s infinite;
   background-image: linear-gradient(to bottom right, #ed1616 0%, #2d57a6 50%, #102243 100%);
