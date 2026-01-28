@@ -20,6 +20,7 @@ export interface Work {
   challenges?: string
   technologies?: string[]
   isAIGenerated?: boolean
+  isInDevelopment?: boolean
 }
 
 export interface Skills {

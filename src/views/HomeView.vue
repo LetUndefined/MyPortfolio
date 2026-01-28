@@ -72,6 +72,7 @@ onUnmounted(() => {
           :project-link="work.projectLink"
           :github-link="work.githubLink"
           :is-a-i-generated="work.isAIGenerated"
+          :is-in-development="work.isInDevelopment"
           @view-details="openProjectDetail(work)"
         />
       </div>

@@ -8,9 +8,35 @@ import cryptoTracker from '@/assets/images/cryptotracker.png'
 import trading from '@/assets/images/trading.png'
 import pinescript from '@/assets/images/pinescript.png'
 import signal from '@/assets/images/signal.png'
-import blue from '@/assets/images/blue.jpg'
+import bookJournal from '@/assets/images/book-journal.png'
 
 const workArray: Ref<Work[]> = ref([
+  {
+    image: bookJournal,
+    title: 'Book Journal',
+    subtitle: 'Track and manage your reading journey',
+    year: '2026',
+    language: ['Vue', 'TypeScript', 'Supabase', 'Vite'],
+    information: 'A modern reading journal application to track books, progress, and reading goals. First time working with Supabase for backend and authentication. Currently in development.',
+    projectLink: 'https://letundefined.github.io/book-journal/',
+    githubLink: 'https://github.com/LetUndefined/book-journal',
+    detailedDescription:
+      'An intuitive book journal application designed to help readers track their reading progress, manage their book collections, and set reading goals. Built with Vue 3 and TypeScript, this project marks my first experience with Supabase as a backend solution, implementing real-time database functionality and user authentication.',
+    features: [
+      'User authentication with Supabase Auth',
+      'Real-time database synchronization',
+      'Track currently reading books',
+      'Manage reading lists',
+      'Set and monitor reading goals',
+      'Book progress tracking',
+      'Modern, clean UI design',
+      'Cloud-based data persistence',
+    ],
+    challenges:
+      'Learning Supabase for the first time presented interesting challenges around authentication flow, real-time subscriptions, and database schema design. Building an intuitive interface for managing book data while ensuring smooth state management and data persistence. Integrating backend services seamlessly with the frontend experience.',
+    technologies: ['Vue 3', 'TypeScript', 'Vite', 'Supabase', 'PostgreSQL', 'Real-time Database', 'Authentication'],
+    isInDevelopment: true,
+  },
   {
     image: trading,
     title: 'Automated Trading',
@@ -134,7 +160,8 @@ const workArray: Ref<Work[]> = ref([
     challenges:
       'Working with external APIs and managing asynchronous data was a key learning experience. Designing a mobile-only interface required careful consideration of touch interactions, screen sizes, and performance optimization. Handling API responses, implementing efficient data fetching strategies, and creating a smooth user experience while data loads required careful planning and implementation.',
     technologies: ['Vue 3', 'JavaScript', 'CSS', 'TypeScript', 'PokeAPI', 'Vite', 'Mobile-First Design'],
-  },{
+  },
+  {
     image: simon,
     title: 'SimonSays',
     subtitle: 'A game of SimonSays',
@@ -201,18 +228,7 @@ const workArray: Ref<Work[]> = ref([
     challenges:
       'Learning CSS layout techniques and making the site responsive across different devices was a significant challenge. Understanding SCSS and organizing styles efficiently required a lot of research and iteration.',
     technologies: ['JavaScript', 'HTML5', 'SCSS', 'Responsive Design'],
-  },
-
-  {
-    image: blue,
-    title: 'Coming soon',
-    subtitle: 'More projects coming soon',
-    year: '2026',
-    language: ['Vue', 'HTML', 'CSS', 'Typescript'],
-    information: 'More projects are underway!',
-    projectLink: 'https://github.com/LetUndefined',
-    githubLink: 'https://github.com/LetUndefined',
-  },
+  }
 ])
 
 export { workArray }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import github from '@/assets/icons/github.svg'
 import link from '@/assets/icons/square-arrow-out-up-right.svg'
+import BadgeComponent from './BadgeComponent.vue'
 
 const props = defineProps<{
   image: string
@@ -12,6 +13,7 @@ const props = defineProps<{
   projectLink: string
   githubLink: string
   isAIGenerated?: boolean
+  isInDevelopment?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -25,7 +27,8 @@ const viewDetails = () => {
 
 <template>
   <v-card class="mx-4 my-12" max-width="6OO" :class="{ 'ai-generated': props.isAIGenerated }">
-    <div v-if="props.isAIGenerated" class="ai-badge">Collaboration with AI</div>
+    <BadgeComponent v-if="props.isInDevelopment" type="dev">Under Development</BadgeComponent>
+    <BadgeComponent v-if="props.isAIGenerated" type="ai">Collaboration with AI</BadgeComponent>
     <div @click="viewDetails" class="card-clickable">
       <v-img height="250" :src="props.image" cover gradient="to top, rgba(0,0,0, 0.9), transparent">
         <p class="year">{{ props.year }}</p>
@@ -89,22 +92,6 @@ const viewDetails = () => {
 
 .v-card.ai-generated:hover {
   box-shadow: 0px 4px 20px rgba(156, 39, 176, 0.5);
-}
-
-.ai-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(156, 39, 176, 0.4);
 }
 
 .card-clickable {
