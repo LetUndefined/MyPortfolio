@@ -411,4 +411,171 @@ const handleSubmit = () => {
     font-size: 4.5rem;
   }
 }
+
+/* Additional Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 5rem 0;
+  }
+
+  .contact-container {
+    padding: 0 1rem;
+  }
+
+  .contact-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .header-description {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .contact-content {
+    gap: 2rem;
+  }
+
+  .contact-form-wrapper {
+    padding: 1.5rem;
+  }
+
+  .social-links {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    padding: 1.25rem;
+  }
+
+  .social-link svg {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .quick-facts {
+    padding: 1.5rem;
+  }
+
+  .submit-button,
+  .form-group input,
+  .form-group textarea {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 4rem 0;
+  }
+
+  .contact-header {
+    margin-bottom: 3rem;
+  }
+
+  .contact-header h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .header-description {
+    font-size: 0.95rem;
+  }
+
+  .contact-content {
+    gap: 1.5rem;
+  }
+
+  .contact-form-wrapper {
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .contact-form-wrapper h3,
+  .contact-sidebar h3 {
+    font-size: 1.25rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.65rem 0.85rem;
+    font-size: 14px;
+  }
+
+  .submit-button {
+    padding: 0.85rem 1.25rem;
+    font-size: 15px;
+  }
+
+  .social-links {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .social-link {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .social-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .social-link div {
+    font-size: 0.9rem;
+  }
+
+  .quick-facts {
+    padding: 1.25rem;
+  }
+
+  .quick-facts h4 {
+    font-size: 1.1rem;
+  }
+
+  .quick-facts li {
+    font-size: 0.9rem;
+  }
+
+  .contact-footer {
+    margin-top: 3rem;
+  }
+
+  .contact-footer p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .contact-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .header-description {
+    font-size: 0.9rem;
+  }
+
+  .social-links {
+    grid-template-columns: 1fr;
+  }
+
+  .social-link {
+    width: 100%;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .submit-button,
+  .social-link {
+    min-height: 44px;
+    min-width: 44px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+}
 </style>

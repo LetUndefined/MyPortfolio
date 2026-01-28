@@ -103,4 +103,62 @@ const props = defineProps<{
   transform: scale(1.15) rotate(5deg);
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .v-card {
+    width: 280px;
+    height: 180px;
+  }
+
+  .image-container {
+    margin-top: 0.75rem;
+  }
+
+  :deep(.v-card-title) {
+    font-size: 1rem;
+  }
+
+  :deep(.v-chip) {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .v-card {
+    width: calc(50% - 0.75rem);
+    min-width: 150px;
+    height: 160px;
+  }
+
+  .image-container {
+    padding: 0.35rem;
+    margin-top: 0.5rem;
+  }
+
+  .image-container :deep(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  :deep(.v-card-title) {
+    font-size: 0.85rem;
+  }
+
+  :deep(.v-chip) {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  :deep(.v-card-item > *) {
+    gap: 0.5rem;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .v-card {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+}
 </style>

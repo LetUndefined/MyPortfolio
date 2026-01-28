@@ -59,6 +59,7 @@ const onListChange = (event: void) => {
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  padding: 0 1rem;
 }
 
 .block-container {
@@ -74,6 +75,7 @@ const onListChange = (event: void) => {
   width: 10rem;
   height: 11rem;
   color: white;
+  touch-action: none;
 }
 
 .block:hover {
@@ -116,6 +118,7 @@ p {
   letter-spacing: 5px;
   font-size: larger;
   margin: 2rem;
+  text-align: center;
 }
 
 .second {
@@ -124,5 +127,70 @@ p {
   font-family: var(--primary-font);
   max-width: 40rem;
   text-align: center;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .block-container {
+    margin: 0.3rem;
+  }
+
+  .block {
+    width: 7rem;
+    height: 8rem;
+  }
+
+  .letter {
+    font-size: 3.5rem;
+  }
+
+  .first {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    margin: 1.5rem 1rem;
+  }
+
+  .second {
+    font-size: 14px;
+    margin: 1.5rem 1rem;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .block-container {
+    margin: 0.2rem;
+  }
+
+  .block {
+    width: 5.5rem;
+    height: 6.5rem;
+  }
+
+  .letter {
+    font-size: 2.5rem;
+  }
+
+  .first {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin: 1rem 0.5rem;
+  }
+
+  .second {
+    font-size: 13px;
+    margin: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .block {
+    width: 4.8rem;
+    height: 5.8rem;
+  }
+
+  .letter {
+    font-size: 2rem;
+  }
 }
 </style>

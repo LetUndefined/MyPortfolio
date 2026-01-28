@@ -20,7 +20,14 @@ const closeModal = () => {
 <template>
   <v-dialog :model-value="modelValue" @update:model-value="closeModal" max-width="900">
     <v-card v-if="project" class="project-detail-card">
-      <v-img :src="project.image" height="300" cover gradient="to top, rgba(0,0,0,.6), transparent">
+      <v-img
+        :src="project.image"
+        height="300"
+        cover
+        gradient="to top, rgba(0,0,0,.6), transparent"
+        loading="lazy"
+        :alt="`${project.title} detail image`"
+      >
         <v-btn icon class="close-btn" @click="closeModal">
           <v-icon>mdi-close</v-icon>
         </v-btn>

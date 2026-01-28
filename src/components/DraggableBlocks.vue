@@ -136,4 +136,59 @@ opacity: 0;
   position: relative;
   z-index: 1;
 }
+
+.draggable-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .block-container {
+    margin: 0.25rem;
+  }
+
+  .block {
+    width: 5rem;
+    height: 5.5rem;
+    border-radius: 18px;
+  }
+
+  .letter {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .block-container {
+    margin: 0.2rem;
+  }
+
+  .block {
+    width: 3.5rem;
+    height: 4.5rem;
+    border-radius: 15px;
+  }
+
+  .letter {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .block-container {
+    margin: 0.15rem;
+  }
+
+  .block {
+    width: 3rem;
+    height: 3.8rem;
+    border-radius: 12px;
+  }
+
+  .letter {
+    font-size: 1.5rem;
+  }
+}
 </style>

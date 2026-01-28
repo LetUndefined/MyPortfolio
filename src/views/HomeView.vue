@@ -329,4 +329,111 @@ p {
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    margin: 1.5rem 1rem;
+  }
+
+  .description {
+    font-size: 14px;
+    margin: 1.5rem 1rem;
+  }
+
+  .work-section,
+  .expertise-section {
+    padding: 6rem 1.5rem 3rem 1.5rem;
+  }
+
+  .work-container h2,
+  .expertise-container h2 {
+    font-size: 2.5rem;
+  }
+
+  .work-container p,
+  .expertise-container p {
+    font-size: 16px;
+  }
+
+  .expertise-content {
+    gap: 1.5rem;
+  }
+
+  .space-people-container {
+    margin-top: 3rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .space-count {
+    font-size: 4rem;
+  }
+
+  .space-text {
+    font-size: 1.2rem;
+  }
+
+  .space-subtext {
+    font-size: 0.9rem;
+  }
+
+  .contact-section {
+    padding-top: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin: 1rem 0.5rem;
+  }
+
+  .description {
+    font-size: 13px;
+    margin: 1rem 0.5rem;
+  }
+
+  .work-section,
+  .expertise-section {
+    padding: 5rem 1rem 2rem 1rem;
+  }
+
+  .work-container h2,
+  .expertise-container h2 {
+    font-size: 2rem;
+  }
+
+  .work-container p,
+  .expertise-container p {
+    font-size: 14px;
+  }
+
+  .expertise-content {
+    gap: 1rem;
+    justify-content: space-around;
+  }
+
+  .space-people-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .space-count {
+    font-size: 3rem;
+  }
+
+  .space-text {
+    font-size: 1rem;
+  }
+
+  .space-subtext {
+    font-size: 0.85rem;
+  }
+}
 </style>
