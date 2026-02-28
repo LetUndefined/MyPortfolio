@@ -1,7 +1,6 @@
 import type { Work } from '@/models/Interface'
 import { ref, type Ref } from 'vue'
 import blackjack from '@/assets/images/blackjack.png'
-import portfolio from '@/assets/images/portfolio.png'
 import pokedex from '@/assets/images/pokedex.png'
 import simon from '@/assets/images/simonsays.png'
 import cryptoTracker from '@/assets/images/cryptotracker.png'
@@ -9,8 +8,37 @@ import trading from '@/assets/images/trading.png'
 import pinescript from '@/assets/images/pinescript.png'
 import signal from '@/assets/images/signal.png'
 import bookJournal from '@/assets/images/book-journal.png'
+import chillit from '@/assets/images/chillit.png'
 
 const workArray: Ref<Work[]> = ref([
+  {
+    image: chillit,
+    title: 'Chill.it',
+    subtitle: 'Discover and save chill spots near you',
+    year: '2026',
+    language: ['Vue', 'TypeScript', 'Supabase', 'Leaflet', 'Vuetify'],
+    information: 'A location-based mobile app for discovering and sharing peaceful spots. Users can find nearby chill locations, save favorites, and contribute their own discoveries with interactive maps and routing.',
+    projectLink: 'https://letundefined.github.io/Chill.it/',
+    githubLink: 'https://github.com/LetUndefined/Chill.it',
+    detailedDescription:
+      'Chill.it is a location-based social application that helps users discover peaceful spots in their area. Built with Vue 3, TypeScript, and Supabase, the app features interactive maps powered by Leaflet for visualizing locations, real-time geolocation tracking, and routing capabilities. Users can browse existing chill spots, save their favorites, add new locations with descriptions, and navigate to them using built-in routing. The app combines modern web technologies with geolocation services to create a smooth mobile-first experience for finding moments of peace in busy urban environments.',
+    features: [
+      'Interactive map with Leaflet integration',
+      'Real-time geolocation tracking',
+      'Save and discover chill spots near you',
+      'Add new locations with custom markers',
+      'Turn-by-turn navigation with routing',
+      'User authentication and personalized lists',
+      'Location-based search and filtering',
+      'Supabase backend for real-time data',
+      'Mobile-optimized UI with Vuetify',
+      'Share your favorite chill spots',
+    ],
+    challenges:
+      'Integrating Leaflet maps with Vue 3\'s reactivity system required careful state management. Implementing accurate geolocation tracking and real-time position updates while maintaining performance was challenging. Building the routing functionality with leaflet-routing-machine and ensuring smooth navigation UX on mobile devices. Managing complex map interactions, custom markers, and location data synchronization with Supabase. Creating an intuitive interface for discovering, saving, and contributing locations while handling permissions and authentication flows.',
+    technologies: ['Vue 3', 'TypeScript', 'Vite', 'Supabase', 'Leaflet', 'Geolocation API', 'Vuetify', 'Pinia', 'Leaflet Routing Machine', 'PostgreSQL'],
+    isInDevelopment: true,
+  },
   {
     image: bookJournal,
     title: 'Book Journal',
@@ -35,7 +63,7 @@ const workArray: Ref<Work[]> = ref([
     challenges:
       'Learning Supabase for the first time presented interesting challenges around authentication flow, real-time subscriptions, and database schema design. Building an intuitive interface for managing book data while ensuring smooth state management and data persistence. Integrating backend services seamlessly with the frontend experience.',
     technologies: ['Vue 3', 'TypeScript', 'Vite', 'Supabase', 'PostgreSQL', 'Real-time Database', 'Authentication'],
-    isInDevelopment: true,
+    isInDevelopment: false,
   },
   {
     image: trading,
@@ -206,29 +234,6 @@ const workArray: Ref<Work[]> = ref([
       'As my first major project, learning to structure code properly and implement game logic was challenging. Managing the game state, implementing the dealer and ensuring fair gameplay required careful planning and debugging.',
     technologies: ['JavaScript', 'HTML5', 'CSS'],
   },
-  {
-    image: portfolio,
-    title: 'Portfolio',
-    subtitle: 'First Portfolio',
-    year: '2024',
-    language: ['Javascript', 'HTML', 'SCSS'],
-    information: 'This marked the beginning of my journey, my first ever portfolio.',
-    projectLink: 'https://letundefined.github.io/Portfolio/',
-    githubLink: 'https://github.com/LetUndefined/Portfolio',
-    detailedDescription:
-      'My first portfolio website, representing the beginning of my web development journey. Built with vanilla technologies, this project taught me the fundamentals of web design and development. It showcases my early projects and serves as a milestone of where I started.',
-    features: [
-      'Clean, modern design',
-      'Project showcase section',
-      'About me section',
-      'Contact form',
-      'Smooth scrolling navigation',
-      'Mobile responsive layout',
-    ],
-    challenges:
-      'Learning CSS layout techniques and making the site responsive across different devices was a significant challenge. Understanding SCSS and organizing styles efficiently required a lot of research and iteration.',
-    technologies: ['JavaScript', 'HTML5', 'SCSS', 'Responsive Design'],
-  }
 ])
 
 export { workArray }
