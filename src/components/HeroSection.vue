@@ -3,7 +3,7 @@ import Draggable from 'vuedraggable'
 import BtnComponent from './BtnComponent.vue'
 import { useDraggableBlocks } from '@/composables/useDraggableBlocks'
 
-const { nameArray, getRandomColor } = useDraggableBlocks()
+const { nameArray } = useDraggableBlocks()
 
 const onListChange = (event: void) => {
   console.log('List changed:', event)
@@ -25,7 +25,6 @@ const onListChange = (event: void) => {
           <div
             class="block"
             :style="{ backgroundColor: element.color }"
-            @click="getRandomColor(element.id)"
           >
             <span class="letter">{{ element.name }}</span>
           </div>

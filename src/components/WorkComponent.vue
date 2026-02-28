@@ -42,7 +42,7 @@ const viewDetails = () => {
         </div>
       </v-card-text>
 
-      <div class="px-4 mb-2">
+      <div class="px-4">
         <div class="language-chip">
           <v-chip v-for="(chip, index) in props.language" :key="index">{{ chip }}</v-chip>
         </div>
@@ -142,8 +142,12 @@ const viewDetails = () => {
   overflow: hidden;
 }
 
-.language-chip .v-chip {
-  margin-right: 10px;
+.language-chip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 60px;
+  align-content: flex-start;
 }
 
 .language-chip :deep(.v-chip__content) {
