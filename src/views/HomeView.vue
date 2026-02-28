@@ -37,6 +37,12 @@ onUnmounted(() => {
 
 <template>
   <section class="hero-section">
+    <vue-particles
+      id="tsparticles"
+      :options="{
+        preset: 'fire'
+      }"
+    />
     <NavBar :class="{ 'nav-hidden': showProjectDetail }" />
     <div class="hero-content" id="hero-section">
       <p class="subtitle">digital creator / developer / designer</p>
@@ -111,31 +117,8 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.hero-section {
-  background-image: linear-gradient(to top, #070f1e 0%, #1e3b70 50%, #070f1e 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
 
-.hero-section::before{
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: red;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transform: translate(-100);
-  animation: pulsating 5s infinite;
-  background-image: linear-gradient(to bottom right, #ed1616 0%, #2d57a6 50%, #102243 100%);
 
-}
 
 @keyframes pulsating{
    0% {
@@ -226,6 +209,7 @@ p {
 }
 
 .expertise-section {
+  background-color: var(--primary-white);
   padding: 10rem 2rem 4rem 2rem;
   display: flex;
   flex-direction: column;
@@ -266,13 +250,6 @@ p {
   position: relative;
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.8; }
 }
 
 .space-badge {
@@ -436,5 +413,14 @@ p {
   .space-subtext {
     font-size: 0.85rem;
   }
+}
+
+#tsparticles {
+  position: fixed;   /* full page */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;       /* behind your hero content */
 }
 </style>

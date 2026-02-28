@@ -3,7 +3,7 @@ import { useDraggableBlocks } from '@/composables/useDraggableBlocks'
 import Draggable from 'vuedraggable'
 import { ref, onMounted } from 'vue'
 
-const { nameArray, getRandomColor, onListChange } = useDraggableBlocks()
+const { nameArray, onListChange } = useDraggableBlocks()
 const hasAnimated = ref(false)
 
 onMounted(() => {
@@ -29,8 +29,7 @@ onMounted(() => {
       >
         <div
           class="block"
-          :style="{ backgroundColor: element.color }"
-          @click="getRandomColor(element.id)"
+          :style="{ borderColor: element.color }"
         >
           <span class="letter">{{ element.name }}</span>
         </div>
@@ -75,7 +74,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
+  border: 3px solid;
   border-radius: 30px;
   width: 10rem;
   height: 11rem;
@@ -85,20 +84,9 @@ onMounted(() => {
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
+  background-color: transparent !important;
 }
 
-.block::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
-  pointer-events: none;
-  opacity: 0;
-  transform: translate(-100);
-  animation: pulsating 5s infinite;
-  background-image: linear-gradient(to bottom right, #ed1616 0%, #2d57a6 50%, #102243 100%);
-}
 
 @keyframes pulsating{
    0% {
@@ -132,9 +120,12 @@ opacity: 0;
   font-size: 5rem;
   text-transform: uppercase;
   font-family: 'Titan One';
-  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8),
+               2px 4px 8px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 1;
+  font-weight: 900;
+  letter-spacing: -2px;
 }
 
 .draggable-list {
