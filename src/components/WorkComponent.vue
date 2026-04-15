@@ -26,164 +26,251 @@ const viewDetails = () => {
 </script>
 
 <template>
-  <v-card class="mx-4 my-12" max-width="6OO" :class="{ 'ai-generated': props.isAIGenerated }">
+  <v-card class="project-card" :class="{ 'ai-generated': props.isAIGenerated }">
     <BadgeComponent v-if="props.isInDevelopment" type="dev">Under Development</BadgeComponent>
     <BadgeComponent v-if="props.isAIGenerated" type="ai">Collaboration with AI</BadgeComponent>
-    <div @click="viewDetails" class="card-clickable">
-      <v-img height="250" :src="props.image" cover gradient="to top, rgba(0,0,0, 0.9), transparent">
-        <p class="year">{{ props.year }}</p>
-        <h4 class="title">{{ props.title }}</h4>
-        <p class="subtitle">{{ props.subtitle }}</p>
-      </v-img>
 
-      <v-card-text>
-        <div class="my-4 text-subtitle-1">
-          <div v-html="props.information.replace('**Private repository**', '<strong>Private repository</strong>')"></div>
-        </div>
-      </v-card-text>
-
-      <div class="px-4">
-        <div class="language-chip">
-          <v-chip v-for="(chip, index) in props.language" :key="index">{{ chip }}</v-chip>
-        </div>
-      </div>
-    </div>
-
-    <div class="px-4 mb-2 icons">
-      <v-chip
-        v-if="projectLink"
-        :href="projectLink"
-        target="_blank"
-        class="project-chip"
-        @click.stop
+    <div @click="viewDetails" class="card-wrapper">
+      <v-img
+        height="400"
+        :src="props.image"
+        cover
+        gradient="to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) 100%"
+        class="project-image"
       >
-        <img :src="link" />
-        <p>View Project</p>
-      </v-chip>
-      <v-chip v-if="githubLink" :href="githubLink" target="_blank" class="github-chip" @click.stop>
-        <img :src="github" />
-        <p>Code</p>
-      </v-chip>
+        <div class="card-content">
+          <div class="card-badges">
+            <v-chip size="small" class="year-chip">{{ props.year }}</v-chip>
+            <v-chip
+              v-for="(tech, index) in props.language.slice(0, 2)"
+              :key="index"
+              size="small"
+              class="tech-chip"
+            >
+              {{ tech }}
+            </v-chip>
+          </div>
+
+          <div class="card-text">
+            <h3 class="project-title">{{ props.title }}</h3>
+            <p class="project-description">{{ props.subtitle }}</p>
+          </div>
+
+          <div class="card-actions">
+            <button class="view-btn" @click.stop="viewDetails">
+              View Details
+            </button>
+            <div class="action-icons">
+              <a
+                v-if="githubLink"
+                :href="githubLink"
+                target="_blank"
+                class="icon-link"
+                @click.stop
+              >
+                <img :src="github" alt="GitHub" />
+              </a>
+              <a
+                v-if="projectLink"
+                :href="projectLink"
+                target="_blank"
+                class="icon-link"
+                @click.stop
+              >
+                <img :src="link" alt="Live" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </v-img>
     </div>
   </v-card>
 </template>
 
 <style scoped>
-.v-card {
+.project-card {
   position: relative;
   border-radius: 30px;
   width: 400px;
-  min-height: 400px;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+  margin: 2rem;
+}
+
+.project-card:hover {
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.project-card.ai-generated {
+  border: 2px solid #9c27b0;
+  box-shadow: 0px 4px 20px rgba(156, 39, 176, 0.3);
+}
+
+.project-card.ai-generated:hover {
+  box-shadow: 0px 8px 30px rgba(156, 39, 176, 0.4);
+}
+
+.card-wrapper {
+  cursor: pointer;
+  height: 100%;
+}
+
+.project-image {
+  height: 100%;
+  position: relative;
+}
+
+.card-content {
   height: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 1px 10px -5px black;
-  transition: 0.3s ease-in-out;
+  justify-content: space-between;
+  padding: 24px;
 }
 
-.v-card:hover {
-  box-shadow: 1px 1px 10px black;
+.card-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.v-card.ai-generated {
-  border: 2px solid #9c27b0;
-  box-shadow: 0px 2px 15px -3px rgba(156, 39, 176, 0.3);
+.year-chip,
+.tech-chip {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.v-card.ai-generated:hover {
-  box-shadow: 0px 4px 20px rgba(156, 39, 176, 0.5);
+.card-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
 }
 
-.card-clickable {
+.project-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+  text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.8), 0px 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.project-description {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  line-height: 1.5;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8), 0px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.view-btn {
+  flex: 1;
+  background: white;
+  color: #1a1a1a;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 15px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.v-img {
-  position: relative;
-  transition: 0.3s ease-in-out;
+.view-btn:hover {
+  background: #f5f5f5;
+  transform: scale(1.02);
 }
 
-.v-card:hover .v-img {
-  transform: scale(1.05);
+.action-icons {
+  display: flex;
+  gap: 8px;
 }
 
-.year {
-  position: absolute;
-  top: 20px;
-  left: 26px;
-  color: var(--primary-white);
-  text-shadow: 1px 2px black;
-}
-
-.title {
-  position: absolute;
-  top: 160px;
-  left: 24px;
-  font-size: 26px;
-  color: var(--primary-white);
-}
-
-.subtitle {
-  position: absolute;
-  top: 200px;
-  left: 26px;
-  font-size: 12px;
-  color: var(--primary-white);
-}
-
-.v-card-text {
+.icon-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem 0rem;
-  padding: 1rem;
-  min-height: 100px;
-  max-height: 100px;
-  overflow: hidden;
+  transition: all 0.2s ease;
 }
 
-.language-chip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  min-height: 60px;
-  align-content: flex-start;
+.icon-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
 }
 
-.language-chip :deep(.v-chip__content) {
-  font-size: 12px;
+.icon-link img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
 }
 
-.icons {
-  min-height: 60px;
+@media (max-width: 768px) {
+  .project-card {
+    width: 100%;
+    margin: 1.5rem 0;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .project-title {
+    font-size: 24px;
+  }
+
+  .project-description {
+    font-size: 14px;
+  }
 }
 
-.icons .v-chip {
-  margin: 10px 10px 10px 0;
-  padding: 1rem;
-}
+@media (max-width: 480px) {
+  .card-content {
+    padding: 16px;
+  }
 
-.icons img {
-  display: block;
-  width: 1rem;
-  margin-right: 3px;
-}
+  .project-title {
+    font-size: 22px;
+  }
 
-.project-chip {
-  background-color: black;
-  color: white;
-  transition: 0.1s ease-in-out;
-}
+  .view-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
 
-.project-chip:hover {
-  transform: scale(1.05);
-}
+  .card-badges {
+    gap: 6px;
+  }
 
-.project-chip img {
-  filter: invert(1);
-}
+  .action-icons {
+    gap: 6px;
+  }
 
-.github-chip:hover {
-  transform: scale(1.05);
+  .icon-link {
+    width: 36px;
+    height: 36px;
+  }
 }
 </style>

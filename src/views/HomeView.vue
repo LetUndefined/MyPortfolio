@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import DraggableBlocks from '@/components/DraggableBlocks.vue'
 import NavBar from '@/components/NavBar.vue'
 import BtnComponent from '@/components/BtnComponent.vue'
+import CodeWindow from '@/components/CodeWindow.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { handleScroll } from '@/composables/NavBarScroll'
 import WorkComponent from '@/components/WorkComponent.vue'
@@ -11,7 +11,7 @@ import { skillsArray } from '@/composables/SkillsAndExpertise'
 import ContactSection from '@/components/ContactSection.vue'
 import ProjectDetail from '@/components/ProjectDetail.vue'
 import type { Work } from '@/models/Interface'
-import { apiData, getApi } from '@/composables/NasaApi'
+import { apiData, getApi, isLoading, hasError } from '@/composables/NasaApi'
 
 
 const showProjectDetail = ref(false)
@@ -37,25 +37,32 @@ onUnmounted(() => {
 
 <template>
   <section class="hero-section">
-    <vue-particles
-      id="tsparticles"
-      :options="{
-        preset: 'fire'
-      }"
-    />
     <NavBar :class="{ 'nav-hidden': showProjectDetail }" />
     <div class="hero-content" id="hero-section">
-      <p class="subtitle">digital creator / developer / designer</p>
-      <DraggableBlocks />
-      <p class="description">
-        Crafting digital experiences that blend creativity with functionality. Drag the tiles,
-        change colors, and explore.
-      </p>
-      <a href="#work-section">
-        <BtnComponent>
-          <span>Explore My Work</span>
-        </BtnComponent>
-      </a>
+      <div class="hero-left">
+        <div class="hero-badge">Frontend Developer</div>
+        <h1 class="hero-heading">
+          Building modern web experiences
+        </h1>
+        <p class="hero-text">
+          From interactive UIs to clean code, I craft digital products that work beautifully. Based in Belgium, working worldwide.
+        </p>
+        <div class="hero-cta">
+          <a href="#work-section">
+            <BtnComponent>
+              <span>View Projects</span>
+            </BtnComponent>
+          </a>
+          <a href="#contact-section" class="secondary-cta">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-visual">
+          <CodeWindow />
+        </div>
+      </div>
     </div>
   </section>
   <section class="work-section" id="work-section">
@@ -105,9 +112,20 @@ onUnmounted(() => {
 
       <div class="space-people-container">
         <div class="space-badge">LIVE FROM NASA</div>
-        <h3 class="space-count">{{ apiData?.number }}</h3>
-        <p class="space-text">humans currently floating around Earth</p>
-        <p class="space-subtext">(probably having a better day than you)</p>
+        <div v-if="isLoading" class="space-loading">
+          <div class="loading-spinner"></div>
+          <p class="space-text">Contacting the ISS...</p>
+        </div>
+        <div v-else-if="hasError" class="space-error">
+          <h3 class="space-count">?</h3>
+          <p class="space-text">Lost signal from space</p>
+          <p class="space-subtext">(Houston, we have a problem)</p>
+        </div>
+        <div v-else>
+          <h3 class="space-count">{{ apiData?.number }}</h3>
+          <p class="space-text">humans currently floating around Earth</p>
+          <p class="space-subtext">(probably having a better day than you)</p>
+        </div>
       </div>
     </div>
   </section >
@@ -120,52 +138,127 @@ onUnmounted(() => {
 
 
 
-@keyframes pulsating{
-   0% {
-opacity: 0;
+.hero-section {
+  background: linear-gradient(135deg, rgb(2, 6, 23) 0%, rgb(15, 23, 42) 100%);
+  position: relative;
+  overflow: hidden;
+}
 
-  }
-
-
-  50% {
-    opacity: 0.4  ;
-  }
-  100% {
-
-opacity: 0;
-
-  }
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .hero-content {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
   align-items: center;
-  flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   max-width: 1400px;
   padding: 0 2rem;
   z-index: 1;
+  margin: 0 auto;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: var(--primary-text-color);
+  font-family: var(--secondary-font);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.hero-heading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: white;
+  margin: 0;
+  font-family: var(--primary-font);
+}
+
+.gradient-text {
+  color: var(--primary-text-color);
+}
+
+.hero-text {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgb(148, 163, 184);
+  margin: 0;
+  font-family: var(--primary-font);
+  max-width: 520px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.secondary-cta {
+  color: white;
+  text-decoration: none;
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.secondary-cta::after {
+  content: '→';
+  margin-left: 0.5rem;
+  transition: margin-left 0.3s ease;
+}
+
+.secondary-cta:hover {
+  color: var(--primary-text-color);
+}
+
+.secondary-cta:hover::after {
+  margin-left: 0.75rem;
+}
+
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-visual {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 p {
   color: var(--primary-p-color);
-}
-
-.subtitle {
-  font-family: var(--secondary-font);
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: larger;
-  margin: 2rem;
-}
-
-.description {
-  margin: 2rem;
-  font-size: 16px;
-  font-family: var(--primary-font);
-  max-width: 40rem;
-  text-align: center;
 }
 
 .work-section {
@@ -194,10 +287,18 @@ p {
   color: var(--primary-text-color);
 }
 
+.expertise-container h2 {
+  color: white;
+}
+
 .work-container p,
 .expertise-container p {
   font-size: 20px;
   max-width: 600px;
+}
+
+.expertise-container p {
+  color: rgb(148, 163, 184);
 }
 
 .work-content {
@@ -209,7 +310,7 @@ p {
 }
 
 .expertise-section {
-  background-color: var(--primary-white);
+  background-color: rgb(2, 6, 23);
   padding: 10rem 2rem 4rem 2rem;
   display: flex;
   flex-direction: column;
@@ -297,9 +398,28 @@ p {
   margin: 0;
 }
 
+.space-loading,
+.space-error {
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  margin: 1.5rem auto;
+  border: 4px solid rgba(96, 165, 250, 0.2);
+  border-top-color: #60a5fa;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .contact-section{
   min-height: 100vh;
-  padding-top: 4rem;
+  background-color: rgb(2, 6, 23);
 }
 
 :deep(.nav-hidden) {
@@ -309,20 +429,43 @@ p {
 }
 
 /* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2rem;
+  }
+
+  .hero-heading {
+    font-size: 2.8rem;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-right {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-content {
-    padding: 0 1rem;
+    padding: 1.5rem;
   }
 
-  .subtitle {
-    font-size: 0.85rem;
-    letter-spacing: 3px;
-    margin: 1.5rem 1rem;
+  .hero-heading {
+    font-size: 2.2rem;
   }
 
-  .description {
-    font-size: 14px;
-    margin: 1.5rem 1rem;
+  .hero-text {
+    font-size: 1rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
   .work-section,
@@ -361,21 +504,28 @@ p {
     font-size: 0.9rem;
   }
 
-  .contact-section {
-    padding-top: 3rem;
-  }
 }
 
 @media (max-width: 480px) {
-  .subtitle {
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    margin: 1rem 0.5rem;
+  .hero-content {
+    padding: 1rem;
   }
 
-  .description {
-    font-size: 13px;
-    margin: 1rem 0.5rem;
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .hero-heading {
+    font-size: 1.8rem;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
+  }
+
+  .secondary-cta {
+    font-size: 0.9rem;
   }
 
   .work-section,

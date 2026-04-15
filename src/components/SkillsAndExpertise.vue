@@ -11,153 +11,128 @@ const props = defineProps<{
 </script>
 
 <template>
-  <v-card class="mx-auto" :style="{ '--icon-bg-color': props.color }">
-    <v-card-item>
-      <v-card-item
-        class="image-container"
-        :style="{ background: props.color, color: props.iconColor || '#000' }"
-      >
-        <component :is="props.icon" :size="30" :stroke-width="2" />
-      </v-card-item>
-
-      <v-card-title>
-        {{ props.skill }}
-      </v-card-title>
-      <v-chip>
-        {{ props.chip }}
-      </v-chip>
-    </v-card-item>
-  </v-card>
+  <div class="skill-card">
+    <div class="skill-icon" :style="{ background: props.color, color: props.iconColor || '#000' }">
+      <component :is="props.icon" :size="32" :stroke-width="2" />
+    </div>
+    <div class="skill-info">
+      <h3 class="skill-name">{{ props.skill }}</h3>
+      <span class="skill-category">{{ props.chip }}</span>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-.v-card {
-  position: relative;
-  border-radius: 30px;
+.skill-card {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 300px;
-  height: 200px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-  overflow: hidden;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  min-width: 200px;
 }
 
-.v-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
-  pointer-events: none;
-  z-index: 1;
+.skill-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.v-card:hover {
-  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.2);
-  transform: translateY(-8px);
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.v-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 10px;
-  background: linear-gradient(90deg, var(--icon-bg-color) 0%, color-mix(in srgb, var(--icon-bg-color) 70%, white) 100%);
-  z-index: 1;
-  border-radius: 30px;
-  transition: height 0.3s ease-in-out;
+.skill-card:hover .skill-icon {
+  transform: scale(1.1);
 }
 
-.v-card:hover::before {
-  height: 15px;
-}
-
-.v-card-item > * {
-  gap: 0.75rem;
-}
-
-:deep(.v-card-item__content) {
+.skill-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
+  gap: 0.25rem;
 }
 
-.image-container {
-  margin-top: 1rem;
-  padding: 0.5rem;
-  border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease-in-out;
+.skill-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  font-family: var(--primary-font);
 }
 
-.v-card:hover .image-container {
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+.skill-category {
+  font-size: 0.85rem;
+  color: rgb(148, 163, 184);
+  font-family: var(--secondary-font);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* Mobile Responsive Styles */
 @media (max-width: 768px) {
-  .v-card {
-    width: 280px;
-    height: 180px;
+  .skill-card {
+    padding: 1rem 1.25rem;
+    min-width: 180px;
   }
 
-  .image-container {
-    margin-top: 0.75rem;
+  .skill-icon {
+    width: 48px;
+    height: 48px;
   }
 
-  :deep(.v-card-title) {
+  .skill-icon :deep(svg) {
+    width: 28px;
+    height: 28px;
+  }
+
+  .skill-name {
     font-size: 1rem;
   }
 
-  :deep(.v-chip) {
+  .skill-category {
     font-size: 0.75rem;
   }
 }
 
 @media (max-width: 480px) {
-  .v-card {
-    width: calc(50% - 0.75rem);
-    min-width: 150px;
-    height: 160px;
+  .skill-card {
+    padding: 0.875rem 1rem;
+    gap: 0.75rem;
+    min-width: 160px;
   }
 
-  .image-container {
-    padding: 0.35rem;
-    margin-top: 0.5rem;
+  .skill-icon {
+    width: 44px;
+    height: 44px;
   }
 
-  .image-container :deep(svg) {
+  .skill-icon :deep(svg) {
     width: 24px;
     height: 24px;
   }
 
-  :deep(.v-card-title) {
-    font-size: 0.85rem;
+  .skill-name {
+    font-size: 0.95rem;
   }
 
-  :deep(.v-chip) {
-    font-size: 0.65rem;
-    padding: 0.2rem 0.4rem;
-  }
-
-  :deep(.v-card-item > *) {
-    gap: 0.5rem;
+  .skill-category {
+    font-size: 0.7rem;
   }
 }
 
-/* Touch-friendly interactions */
 @media (hover: none) and (pointer: coarse) {
-  .v-card {
+  .skill-card {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
   }
 }

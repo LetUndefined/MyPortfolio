@@ -4,16 +4,24 @@ import router from './router'
 import './styles/main.css'
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
+import { VCard, VCardItem, VCardTitle, VCardText, VImg, VChip, VBtn, VIcon, VDialog } from 'vuetify/components'
 import Particles from "@tsparticles/vue3";
 import { loadFirePreset } from "@tsparticles/preset-fire"
 
 
 const app = createApp(App)
 const vuetify = createVuetify({
-  components,
-  directives,
+  components: {
+    VCard,
+    VCardItem,
+    VCardTitle,
+    VCardText,
+    VImg,
+    VChip,
+    VBtn,
+    VIcon,
+    VDialog,
+  },
 })
 
 app.use(router)
