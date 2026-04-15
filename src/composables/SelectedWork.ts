@@ -9,19 +9,47 @@ import pinescript from '@/assets/images/pinescript.png'
 import signal from '@/assets/images/signal.png'
 import bookJournal from '@/assets/images/book-journal.png'
 import chillit from '@/assets/images/chillit.png'
+import nasa from '@/assets/images/nasa.png'
 
 const workArray: Ref<Work[]> = ref([
+  {
+    image: nasa,
+    title: 'NASA Dashboard',
+    subtitle: 'Chrome Extension for ISS Telemetry',
+    year: '2026',
+    language: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    information: 'Chrome extension showing who\'s in space right now and live ISS tank levels. My first React project.',
+    projectLink: '',
+    githubLink: 'https://github.com/LetUndefined/Nasa-extension',
+    detailedDescription:
+      'A Chrome extension that shows how many people are currently in space, their names, and real-time ISS telemetry like water and urine tank levels. Built with React 19, TypeScript, and Tailwind CSS v4 while learning both frameworks for the first time. Pulls data from NASA\'s public APIs - no keys needed. Just a fun way to keep tabs on the ISS.',
+    features: [
+      'Live crew manifest showing humans currently in orbit',
+      'Real-time ISS system status (Urine and Water tank levels)',
+      'Direct connection to NASA\'s Lightstreamer telemetry feed',
+      'Compact 380×500px dark-themed popup dashboard',
+      'Glowing crew count with scrollable astronaut list',
+      'Live progress bars for life support tank levels',
+      'No API key required - all public data sources',
+      'Built with React 19 and TypeScript',
+      'Styled with Tailwind CSS v4',
+      'Real-time data updates',
+    ],
+    challenges:
+      'Integrating with NASA\'s Lightstreamer telemetry feed required understanding real-time streaming protocols and handling WebSocket connections. Building a Chrome extension with React and Vite required specific configuration for the manifest and build process. Managing real-time data updates efficiently while keeping the popup responsive was crucial. Designing a compact, information-dense interface that displays live telemetry data in an intuitive way within the 380×500px constraint. Handling connection errors and reconnection logic for the live data stream. This was my first time working with React and Tailwind CSS, requiring learning new frameworks while implementing real-time features.',
+    technologies: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Vite', 'Chrome Extension API', 'Lightstreamer', 'Open Notify API', 'WebSockets', 'Real-time Data Streaming'],
+  },
   {
     image: chillit,
     title: 'Chill.it',
     subtitle: 'Discover and save chill spots near you',
     year: '2026',
     language: ['Vue', 'TypeScript', 'Supabase', 'Leaflet', 'Vuetify'],
-    information: 'A location-based mobile app for discovering and sharing peaceful spots. Users can find nearby chill locations, save favorites, and contribute their own discoveries with interactive maps and routing.',
+    information: 'Find and save quiet spots to chill around you. Map-based app with routing.',
     projectLink: 'https://letundefined.github.io/Chill.it/',
     githubLink: 'https://github.com/LetUndefined/Chill.it',
     detailedDescription:
-      'Chill.it is a location-based social application that helps users discover peaceful spots in their area. Built with Vue 3, TypeScript, and Supabase, the app features interactive maps powered by Leaflet for visualizing locations, real-time geolocation tracking, and routing capabilities. Users can browse existing chill spots, save their favorites, add new locations with descriptions, and navigate to them using built-in routing. The app combines modern web technologies with geolocation services to create a smooth mobile-first experience for finding moments of peace in busy urban environments.',
+      'App for finding peaceful spots near you. See them on a map, save your favorites, add new ones, and get directions. Built with Vue 3, TypeScript, and Supabase with Leaflet for the maps. Still working on it.',
     features: [
       'Interactive map with Leaflet integration',
       'Real-time geolocation tracking',

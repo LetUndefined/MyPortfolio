@@ -87,25 +87,6 @@ onMounted(() => {
   background-color: transparent !important;
 }
 
-
-@keyframes pulsating{
-   0% {
-opacity: 0;
-
-  }
-
-
-  50% {
-    opacity: 1  ;
-  }
-  100% {
-
-opacity: 0;
-
-  }
-}
-
-
 .block:hover {
   cursor: pointer;
   transform: scale(1.05) translateY(-5px);

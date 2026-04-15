@@ -149,22 +149,21 @@ li a:hover::after {
 }
 
 .navbar-scrolled {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(2, 6, 23, 0.8);
   transition: all 0.3s ease;
-  color: black;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0.8rem 2rem;
 }
 
 .navbar-scrolled li a {
-  color: black;
+  color: white;
 }
 
 .navbar-scrolled .logo {
-  color: black;
+  color: white;
 }
 
-/* Hamburger Menu Button */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -187,7 +186,7 @@ li a:hover::after {
 }
 
 .navbar-scrolled .hamburger span {
-  background-color: black;
+  background-color: white;
 }
 
 .hamburger.active span:nth-child(1) {

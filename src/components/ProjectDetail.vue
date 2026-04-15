@@ -18,212 +18,323 @@ const closeModal = () => {
 </script>
 
 <template>
-  <v-dialog :model-value="modelValue" @update:model-value="closeModal" max-width="900">
-    <v-card v-if="project" class="project-detail-card">
-      <v-img
-        :src="project.image"
-        height="300"
-        cover
-        gradient="to top, rgba(0,0,0,.6), transparent"
-        loading="lazy"
-        :alt="`${project.title} detail image`"
-      >
-        <v-btn icon class="close-btn" @click="closeModal">
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-        <div class="header-content">
-          <p class="year">{{ project.year }}</p>
-          <h2 class="title">{{ project.title }}</h2>
-          <p class="subtitle">{{ project.subtitle }}</p>
-        </div>
-      </v-img>
+  <v-dialog :model-value="modelValue" @update:model-value="closeModal" max-width="1000" class="project-modal">
+    <v-card v-if="project" class="modal-card">
+      <button class="close-button" @click="closeModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
 
-      <v-card-text class="project-content">
-        <div class="section">
-          <h3>About</h3>
-          <p class="description">
-            {{ project.detailedDescription || project.information }}
-          </p>
+      <div class="modal-hero">
+        <v-img
+          :src="project.image"
+          height="350"
+          cover
+          gradient="to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) 100%"
+        />
+        <div class="hero-overlay">
+          <div class="hero-badges">
+            <span class="year-badge">{{ project.year }}</span>
+          </div>
+          <h2 class="modal-title">{{ project.title }}</h2>
+          <p class="modal-subtitle">{{ project.subtitle }}</p>
         </div>
+      </div>
 
-        <div v-if="project.features && project.features.length > 0" class="section">
-          <h3>Key Features</h3>
-          <ul class="features-list">
-            <li v-for="(feature, index) in project.features" :key="index">{{ feature }}</li>
-          </ul>
+      <div class="modal-body">
+        <div class="content-section">
+          <p class="project-about">{{ project.detailedDescription || project.information }}</p>
         </div>
 
-        <div v-if="project.challenges" class="section">
-          <h3>Challenges & Solutions</h3>
-          <p class="description">{{ project.challenges }}</p>
-        </div>
-
-        <div v-if="project.technologies && project.technologies.length > 0" class="section">
-          <h3>Technologies</h3>
-          <div class="technology-chips">
-            <v-chip v-for="(tech, index) in project.technologies" :key="index">{{ tech }}</v-chip>
+        <div v-if="project.features && project.features.length > 0" class="content-section">
+          <h3 class="section-title">Features</h3>
+          <div class="features-grid">
+            <div v-for="(feature, index) in project.features" :key="index" class="feature-item">
+              <span class="feature-dot"></span>
+              <span>{{ feature }}</span>
+            </div>
           </div>
         </div>
 
-        <div class="actions">
-          <v-chip
+        <div v-if="project.challenges" class="content-section">
+          <h3 class="section-title">Challenges</h3>
+          <p class="challenge-text">{{ project.challenges }}</p>
+        </div>
+
+        <div v-if="project.technologies && project.technologies.length > 0" class="content-section">
+          <h3 class="section-title">Tech Stack</h3>
+          <div class="tech-grid">
+            <span v-for="(tech, index) in project.technologies" :key="index" class="tech-item">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <a
             v-if="project.projectLink"
             :href="project.projectLink"
             target="_blank"
-            class="project-chip"
+            class="action-button primary"
           >
             <img :src="link" />
-            <p>View Project</p>
-          </v-chip>
-          <v-chip
+            <span>Live Demo</span>
+          </a>
+          <a
             v-if="project.githubLink"
             :href="project.githubLink"
             target="_blank"
-            class="github-chip"
+            class="action-button secondary"
           >
             <img :src="github" />
-            <p>View Code</p>
-          </v-chip>
+            <span>View Code</span>
+          </a>
         </div>
-      </v-card-text>
+      </div>
     </v-card>
   </v-dialog>
 </template>
 
 <style scoped>
-.project-detail-card {
-  border-radius: 30px;
-  overflow: hidden;
+:deep(.v-overlay__scrim) {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.6) !important;
 }
 
-.v-img {
+.modal-card {
+  border-radius: 24px;
+  overflow: hidden;
   position: relative;
 }
 
-.close-btn {
+.close-button {
   position: absolute;
   top: 20px;
   right: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
-  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-.close-btn:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+.close-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
 }
 
-.header-content {
+.modal-hero {
+  position: relative;
+  height: 350px;
+}
+
+.hero-overlay {
   position: absolute;
-  bottom: 20px;
-  left: 30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 40px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
 }
 
-.year {
-  color: var(--primary-white);
-  text-shadow: 1px 2px black;
-  margin-bottom: 0.5rem;
+.hero-badges {
+  margin-bottom: 16px;
 }
 
-.title {
-  font-size: 36px;
-  color: var(--primary-white);
-  text-shadow: 1px 2px black;
-  margin-bottom: 0.5rem;
+.year-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.subtitle {
-  font-size: 14px;
-  color: var(--primary-white);
-  text-shadow: 1px 2px black;
+.modal-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+  text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.8);
 }
 
-.project-content {
-  padding: 2rem;
+.modal-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.modal-body {
+  padding: 40px;
   max-height: 60vh;
   overflow-y: auto;
 }
 
-.section {
-  margin-bottom: 2rem;
+.content-section {
+  margin-bottom: 32px;
 }
 
-.section h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary-text-color);
-  font-family: var(--primary-font);
+.content-section:last-child {
+  margin-bottom: 0;
 }
 
-.description {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--primary-p-color);
+.project-about {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
 }
 
-.features-list {
-  list-style: none;
-  padding: 0;
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
 }
 
-.features-list li {
-  padding: 0.5rem 0;
-  padding-left: 1.5rem;
-  position: relative;
-  font-size: 16px;
-  color: var(--primary-p-color);
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
 }
 
-.features-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--primary-text-color);
-  font-weight: bold;
-}
-
-.technology-chips .v-chip {
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-.actions {
+.feature-item {
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.feature-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--primary-text-color);
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.challenge-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.tech-grid {
+  display: flex;
   flex-wrap: wrap;
+  gap: 8px;
 }
 
-.actions .v-chip {
-  padding: 1.2rem;
+.tech-item {
+  background: #f5f5f5;
+  color: #444;
+  padding: 8px 14px;
+  border-radius: 6px;
   font-size: 14px;
+  font-weight: 500;
 }
 
-.actions img {
-  display: block;
-  width: 1rem;
-  margin-right: 5px;
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid #f0f0f0;
 }
 
-.project-chip {
-  background-color: black;
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.action-button img {
+  width: 18px;
+  height: 18px;
+}
+
+.action-button.primary {
+  background: #1a1a1a;
   color: white;
-  transition: 0.1s ease-in-out;
 }
 
-.project-chip:hover {
-  transform: scale(1.05);
+.action-button.primary:hover {
+  background: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.project-chip img {
-  filter: invert(1);
+.action-button.primary img {
+  filter: brightness(0) invert(1);
 }
 
-.github-chip:hover {
-  transform: scale(1.05);
+.action-button.secondary {
+  background: white;
+  color: #1a1a1a;
+  border: 2px solid #e5e5e5;
 }
 
-:deep(.v-overlay__scrim) {
-  backdrop-filter: blur(10px);
+.action-button.secondary:hover {
+  border-color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .modal-hero {
+    height: 280px;
+  }
+
+  .hero-overlay {
+    padding: 24px;
+  }
+
+  .modal-title {
+    font-size: 28px;
+  }
+
+  .modal-subtitle {
+    font-size: 14px;
+  }
+
+  .modal-body {
+    padding: 24px;
+    max-height: 50vh;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .action-button {
+    justify-content: center;
+  }
 }
 </style>

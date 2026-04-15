@@ -1,8 +1,6 @@
 import { ref, type Ref } from 'vue'
 import { type Block } from '@/models/Interface'
 
-
-
 export function useDraggableBlocks() {
   const nameArray: Ref<Block[]> = ref([
     { id: 1, name: 's', color: '#FFFFFF' },
@@ -13,10 +11,7 @@ export function useDraggableBlocks() {
     { id: 6, name: 'o', color: '#DADADA' },
   ])
 
-
-
-  const onListChange = (event: void) => {
-    console.log('List changed:', event)
+  const onListChange = () => {
   }
 
   return {

@@ -60,6 +60,20 @@ export const skillsArray: Ref<Skills[]> = ref([
     iconColor: '#ff7676ee',
   },
   {
+    icon: Code,
+    skill: 'React',
+    chip: 'Frontend',
+    color: '#E7F6F8',
+    iconColor: '#61DAFB',
+  },
+  {
+    icon: Palette,
+    skill: 'Tailwind CSS',
+    chip: 'Frontend',
+    color: '#E0F2FE',
+    iconColor: '#06B6D4',
+  },
+  {
     icon: Coffee,
     skill: 'Drinking Coffee',
     chip: 'Essential',
