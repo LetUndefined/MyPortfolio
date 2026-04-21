@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
-  type?: 'ai' | 'dev'
-}>()
+  type?: 'ai' | 'dev';
+}>();
 </script>
 
 <template>

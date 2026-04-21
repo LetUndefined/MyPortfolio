@@ -1,38 +1,37 @@
 <script setup lang="ts">
-import NavBar from '@/components/NavBar.vue'
-import BtnComponent from '@/components/BtnComponent.vue'
-import CodeWindow from '@/components/CodeWindow.vue'
-import { onMounted, onUnmounted, ref } from 'vue'
-import { handleScroll } from '@/composables/NavBarScroll'
-import WorkComponent from '@/components/WorkComponent.vue'
-import { workArray } from '@/composables/SelectedWork'
-import SkillsAndExpertise from '@/components/SkillsAndExpertise.vue'
-import { skillsArray } from '@/composables/SkillsAndExpertise'
-import ContactSection from '@/components/ContactSection.vue'
-import ProjectDetail from '@/components/ProjectDetail.vue'
-import type { Work } from '@/models/Interface'
-import { apiData, getApi, isLoading, hasError } from '@/composables/NasaApi'
+import NavBar from '@/components/NavBar.vue';
+import BtnComponent from '@/components/BtnComponent.vue';
+import CodeWindow from '@/components/CodeWindow.vue';
+import { onMounted, onUnmounted, ref } from 'vue';
+import { handleScroll } from '@/composables/NavBarScroll';
+import WorkComponent from '@/components/WorkComponent.vue';
+import { workArray } from '@/composables/SelectedWork';
+import SkillsAndExpertise from '@/components/SkillsAndExpertise.vue';
+import { skillsArray } from '@/composables/SkillsAndExpertise';
+import ContactSection from '@/components/ContactSection.vue';
+import ProjectDetail from '@/components/ProjectDetail.vue';
+import type { Work } from '@/models/Interface';
+import { apiData, getApi, isLoading, hasError } from '@/composables/NasaApi';
 
-
-const showProjectDetail = ref(false)
-const selectedProject = ref<Work | null>(null)
+const showProjectDetail = ref(false);
+const selectedProject = ref<Work | null>(null);
 
 const openProjectDetail = (work: Work) => {
-  selectedProject.value = work
-  showProjectDetail.value = true
-}
+  selectedProject.value = work;
+  showProjectDetail.value = true;
+};
 
-onMounted( async() => {
-  window.addEventListener('scroll', handleScroll)
-   const data = await getApi()
-   if(data) {
-    apiData.value = data
-   }
-})
+onMounted(async () => {
+  window.addEventListener('scroll', handleScroll);
+  const data = await getApi();
+  if (data) {
+    apiData.value = data;
+  }
+});
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
@@ -41,11 +40,10 @@ onUnmounted(() => {
     <div class="hero-content" id="hero-section">
       <div class="hero-left">
         <div class="hero-badge">Frontend Developer</div>
-        <h1 class="hero-heading">
-          Building modern web experiences
-        </h1>
+        <h1 class="hero-heading">Building modern web experiences</h1>
         <p class="hero-text">
-          From interactive UIs to clean code, I craft digital products that work beautifully. Based in Belgium, working worldwide.
+          From interactive UIs to clean code, I craft digital products that work beautifully. Based
+          in Belgium, working worldwide.
         </p>
         <div class="hero-cta">
           <a href="#work-section">
@@ -53,9 +51,7 @@ onUnmounted(() => {
               <span>View Projects</span>
             </BtnComponent>
           </a>
-          <a href="#contact-section" class="secondary-cta">
-            Get in Touch
-          </a>
+          <a href="#contact-section" class="secondary-cta"> Get in Touch </a>
         </div>
       </div>
       <div class="hero-right">
@@ -128,16 +124,13 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-  </section >
+  </section>
   <section class="contact-section" id="contact-section">
     <ContactSection />
   </section>
 </template>
 
 <style scoped>
-
-
-
 .hero-section {
   background: linear-gradient(135deg, rgb(2, 6, 23) 0%, rgb(15, 23, 42) 100%);
   position: relative;
@@ -151,8 +144,9 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -262,7 +256,6 @@ p {
 }
 
 .work-section {
-
   background-color: var(--primary-grayscale-white);
   padding: 10rem 2rem 4rem 2rem;
   display: flex;
@@ -368,8 +361,13 @@ p {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .space-count {
@@ -414,10 +412,12 @@ p {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.contact-section{
+.contact-section {
   min-height: 100vh;
   background-color: rgb(2, 6, 23);
 }
@@ -503,7 +503,6 @@ p {
   .space-subtext {
     font-size: 0.9rem;
   }
-
 }
 
 @media (max-width: 480px) {
@@ -566,11 +565,11 @@ p {
 }
 
 #tsparticles {
-  position: fixed;   /* full page */
+  position: fixed; /* full page */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;       /* behind your hero content */
+  z-index: -1; /* behind your hero content */
 }
 </style>

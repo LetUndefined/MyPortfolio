@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { isScrolled } from '@/composables/NavBarScroll'
-import BtnComponent from './BtnComponent.vue'
+import { ref } from 'vue';
+import { isScrolled } from '@/composables/NavBarScroll';
+import BtnComponent from './BtnComponent.vue';
 
-const isMobileMenuOpen = ref(false)
+const isMobileMenuOpen = ref(false);
 
 const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value
-}
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
 
 const closeMobileMenu = () => {
-  isMobileMenuOpen.value = false
-}
+  isMobileMenuOpen.value = false;
+};
 </script>
 <template>
   <nav :class="['nav', { 'navbar-scrolled': isScrolled }]">

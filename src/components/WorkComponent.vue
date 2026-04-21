@@ -1,28 +1,28 @@
 <script setup lang="ts">
-import github from '@/assets/icons/github.svg'
-import link from '@/assets/icons/square-arrow-out-up-right.svg'
-import BadgeComponent from './BadgeComponent.vue'
+import github from '@/assets/icons/github.svg';
+import link from '@/assets/icons/square-arrow-out-up-right.svg';
+import BadgeComponent from './BadgeComponent.vue';
 
 const props = defineProps<{
-  image: string
-  title: string
-  subtitle: string
-  year: string
-  language: string[]
-  information: string
-  projectLink: string
-  githubLink: string
-  isAIGenerated?: boolean
-  isInDevelopment?: boolean
-}>()
+  image: string;
+  title: string;
+  subtitle: string;
+  year: string;
+  language: string[];
+  information: string;
+  projectLink: string;
+  githubLink: string;
+  isAIGenerated?: boolean;
+  isInDevelopment?: boolean;
+}>();
 
 const emit = defineEmits<{
-  'view-details': []
-}>()
+  'view-details': [];
+}>();
 
 const viewDetails = () => {
-  emit('view-details')
-}
+  emit('view-details');
+};
 </script>
 
 <template>
@@ -57,17 +57,9 @@ const viewDetails = () => {
           </div>
 
           <div class="card-actions">
-            <button class="view-btn" @click.stop="viewDetails">
-              View Details
-            </button>
+            <button class="view-btn" @click.stop="viewDetails">View Details</button>
             <div class="action-icons">
-              <a
-                v-if="githubLink"
-                :href="githubLink"
-                target="_blank"
-                class="icon-link"
-                @click.stop
-              >
+              <a v-if="githubLink" :href="githubLink" target="_blank" class="icon-link" @click.stop>
                 <img :src="github" alt="GitHub" />
               </a>
               <a
@@ -161,7 +153,9 @@ const viewDetails = () => {
   color: white;
   margin: 0 0 8px 0;
   line-height: 1.2;
-  text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.8), 0px 4px 20px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0px 2px 12px rgba(0, 0, 0, 0.8),
+    0px 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .project-description {
@@ -169,7 +163,9 @@ const viewDetails = () => {
   color: rgba(255, 255, 255, 0.95);
   margin: 0;
   line-height: 1.5;
-  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8), 0px 1px 4px rgba(0, 0, 0, 0.6);
+  text-shadow:
+    0px 2px 8px rgba(0, 0, 0, 0.8),
+    0px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .card-actions {
