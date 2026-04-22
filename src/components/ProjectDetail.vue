@@ -1,27 +1,40 @@
 <script setup lang="ts">
-import type { Work } from '@/models/Interface'
-import github from '@/assets/icons/github.svg'
-import link from '@/assets/icons/square-arrow-out-up-right.svg'
+import type { Work } from '@/models/Interface';
+import github from '@/assets/icons/github.svg';
+import link from '@/assets/icons/square-arrow-out-up-right.svg';
 
 defineProps<{
-  project: Work | null
-  modelValue: boolean
-}>()
+  project: Work | null;
+  modelValue: boolean;
+}>();
 
 const emit = defineEmits<{
-  'update:modelValue': [value: boolean]
-}>()
+  'update:modelValue': [value: boolean];
+}>();
 
 const closeModal = () => {
-  emit('update:modelValue', false)
-}
+  emit('update:modelValue', false);
+};
 </script>
 
 <template>
-  <v-dialog :model-value="modelValue" @update:model-value="closeModal" max-width="1000" class="project-modal">
+  <v-dialog
+    :model-value="modelValue"
+    @update:model-value="closeModal"
+    max-width="1000"
+    class="project-modal"
+  >
     <v-card v-if="project" class="modal-card">
       <button class="close-button" @click="closeModal">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
@@ -144,7 +157,7 @@ const closeModal = () => {
   left: 0;
   right: 0;
   padding: 32px 40px;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
 }
 
 .hero-badges {

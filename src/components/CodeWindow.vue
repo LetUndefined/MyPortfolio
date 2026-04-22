@@ -9,10 +9,12 @@
       <div class="window-title">portfolio.vue</div>
     </div>
     <div class="window-content">
-      <div class="code-line"><span class="code-purple">const</span> <span class="code-blue">skills</span> = [</div>
-      <div class="code-line">  <span class="code-green">'Googling errors'</span>,</div>
-      <div class="code-line">  <span class="code-green">'Coffee to code'</span>,</div>
-      <div class="code-line">  <span class="code-green">'Debugging at 3am'</span>,</div>
+      <div class="code-line">
+        <span class="code-purple">const</span> <span class="code-blue">skills</span> = [
+      </div>
+      <div class="code-line"><span class="code-green">'Googling errors'</span>,</div>
+      <div class="code-line"><span class="code-green">'Coffee to code'</span>,</div>
+      <div class="code-line"><span class="code-green">'Debugging at 3am'</span>,</div>
       <div class="code-line">]</div>
     </div>
   </div>

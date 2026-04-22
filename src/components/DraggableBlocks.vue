@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { useDraggableBlocks } from '@/composables/useDraggableBlocks'
-import Draggable from 'vuedraggable'
-import { ref, onMounted } from 'vue'
+import { useDraggableBlocks } from '@/composables/useDraggableBlocks';
+import Draggable from 'vuedraggable';
+import { ref, onMounted } from 'vue';
 
-const { nameArray, onListChange } = useDraggableBlocks()
-const hasAnimated = ref(false)
+const { nameArray, onListChange } = useDraggableBlocks();
+const hasAnimated = ref(false);
 
 onMounted(() => {
   setTimeout(() => {
-    hasAnimated.value = true
-  }, 1000)
-})
+    hasAnimated.value = true;
+  }, 1000);
+});
 </script>
 
 <template>
@@ -27,10 +27,7 @@ onMounted(() => {
         :class="{ 'no-animation': hasAnimated }"
         :style="{ animationDelay: `${index * 0.1}s` }"
       >
-        <div
-          class="block"
-          :style="{ borderColor: element.color }"
-        >
+        <div class="block" :style="{ borderColor: element.color }">
           <span class="letter">{{ element.name }}</span>
         </div>
       </div>
@@ -101,8 +98,9 @@ onMounted(() => {
   font-size: 5rem;
   text-transform: uppercase;
   font-family: 'Titan One';
-  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8),
-               2px 4px 8px rgba(0, 0, 0, 0.3);
+  text-shadow:
+    0px 0px 20px rgba(255, 255, 255, 0.8),
+    2px 4px 8px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 1;
   font-weight: 900;

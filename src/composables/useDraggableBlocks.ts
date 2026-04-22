@@ -1,5 +1,5 @@
-import { ref, type Ref } from 'vue'
-import { type Block } from '@/models/Interface'
+import { ref, type Ref } from 'vue';
+import { type Block } from '@/models/Interface';
 
 export function useDraggableBlocks() {
   const nameArray: Ref<Block[]> = ref([
@@ -9,13 +9,12 @@ export function useDraggableBlocks() {
     { id: 4, name: 'd', color: '#E8E8E8' },
     { id: 5, name: 'r', color: '#E0E0E0' },
     { id: 6, name: 'o', color: '#DADADA' },
-  ])
+  ]);
 
-  const onListChange = () => {
-  }
+  const onListChange = () => {};
 
   return {
     nameArray,
     onListChange,
-  }
+  };
 }

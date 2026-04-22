@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { Component } from 'vue'
+import type { Component } from 'vue';
 
 const props = defineProps<{
-  icon: Component
-  skill: string
-  chip: string
-  color: string
-  iconColor?: string
-}>()
+  icon: Component;
+  skill: string;
+  chip: string;
+  color: string;
+  iconColor?: string;
+}>();
 </script>
 
 <template>

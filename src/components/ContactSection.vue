@@ -1,27 +1,29 @@
 <script setup lang="ts">
-import { Mail, Linkedin, Github, FileText } from 'lucide-vue-next'
-import type { LucideIcon } from 'lucide-vue-next'
+import { Mail, Linkedin, Github, FileText } from 'lucide-vue-next';
+import type { LucideIcon } from 'lucide-vue-next';
 
 interface SocialLink {
-  icon: LucideIcon
-  label: string
-  href: string
+  icon: LucideIcon;
+  label: string;
+  href: string;
 }
 
 const socialLinks: SocialLink[] = [
   { icon: Github, label: 'GitHub', href: 'https://github.com/LetUndefined' },
-  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/sandro-dangelo-80150b227/' },
+  {
+    icon: Linkedin,
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/sandro-dangelo-80150b227/',
+  },
   { icon: Mail, label: 'Email', href: 'mailto:sandroodangelo@hotmail.com' },
-  { icon: FileText, label: 'Resume', href: "/files/CV-DAngelo.pdf"},
-]
+  { icon: FileText, label: 'Resume', href: '/files/CV-DAngelo.pdf' },
+];
 </script>
-
 
 <template>
   <section id="contact" class="contact-section">
     <div class="contact-container">
       <div class="contact-header">
-
         <h2>
           Let's Create
           <br />
@@ -39,7 +41,7 @@ const socialLinks: SocialLink[] = [
             v-for="link in socialLinks"
             :key="link.label"
             :href="link.href"
-            :download="link.label === 'Resume' ? '' : null "
+            :download="link.label === 'Resume' ? '' : null"
             class="social-link"
           >
             <component :is="link.icon" />
@@ -54,7 +56,6 @@ const socialLinks: SocialLink[] = [
     </div>
   </section>
 </template>
-
 
 <style scoped>
 .contact-section {

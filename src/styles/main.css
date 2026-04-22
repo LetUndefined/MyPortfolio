@@ -45,6 +45,6 @@ img {
 /* Improve tap responsiveness */
 a,
 button,
-[role="button"] {
+[role='button'] {
   touch-action: manipulation;
 }

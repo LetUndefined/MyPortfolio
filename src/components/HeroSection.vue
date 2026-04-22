@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import Draggable from 'vuedraggable'
-import BtnComponent from './BtnComponent.vue'
-import { useDraggableBlocks } from '@/composables/useDraggableBlocks'
+import Draggable from 'vuedraggable';
+import BtnComponent from './BtnComponent.vue';
+import { useDraggableBlocks } from '@/composables/useDraggableBlocks';
 
-const { nameArray } = useDraggableBlocks()
+const { nameArray } = useDraggableBlocks();
 
 const onListChange = (event: void) => {
-  console.log('List changed:', event)
-}
+  console.log('List changed:', event);
+};
 </script>
 
 <template>
@@ -22,10 +22,7 @@ const onListChange = (event: void) => {
     >
       <template #item="{ element }">
         <div class="block-container">
-          <div
-            class="block"
-            :style="{ backgroundColor: element.color }"
-          >
+          <div class="block" :style="{ backgroundColor: element.color }">
             <span class="letter">{{ element.name }}</span>
           </div>
         </div>
