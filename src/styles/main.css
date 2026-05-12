@@ -22,6 +22,7 @@
 
 /* Mobile performance optimizations */
 body {
+  background-color: rgb(2, 6, 23);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

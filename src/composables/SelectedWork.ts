@@ -11,8 +11,46 @@ import bookJournal from '@/assets/images/book-journal.png';
 import chillit from '@/assets/images/chillit.png';
 import nasa from '@/assets/images/nasa.png';
 import costly from '@/assets/images/costly.svg';
+import pulse from '@/assets/images/pulse.png';
 
 const workArray: Ref<Work[]> = ref([
+  {
+    image: pulse,
+    title: 'Pulse',
+    subtitle: 'Discover events near you on a map',
+    year: '2026',
+    language: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'Google Maps'],
+    information:
+      'Find local events on an interactive map, filter by genre, see what your friends are attending, and buy tickets — currently in alpha on the Play Store.',
+    projectLink: '',
+    githubLink: 'https://github.com/LetUndefined/eventmap',
+    detailedDescription:
+      'Pulse is a mobile-first event discovery app built with React Native and Expo. Drop a pin, find events happening around you, filter by genre or date, and see which friends are going. Integrates with Ticketmaster for ticket purchasing and uses Supabase for real-time social features. Currently live in alpha on the Google Play Store for internet testing.',
+    features: [
+      'Interactive Google Maps with event markers clustered by location',
+      'Filter events by genre, date range, and kid-friendliness',
+      'Friends system — see which events your friends are attending',
+      'Ticketmaster integration for live ticket purchasing',
+      'Real-time data with Supabase and location-based caching',
+      'Calendar sheet for browsing events by date',
+      'User profiles with event history and avatar support',
+      'Dark-themed native UI optimised for Android and iOS',
+    ],
+    challenges:
+      'Building performant map clustering for large event datasets required custom hooks and memoisation strategies. Integrating Ticketmaster alongside a self-hosted Supabase event system meant reconciling two different data models. Real-time friend presence (who is going to an event) needed careful Supabase channel management to avoid duplicate subscriptions. Shipping a production-ready alpha to the Play Store required handling Expo EAS builds, signing configs, and deep-link authentication flows.',
+    technologies: [
+      'React Native',
+      'Expo',
+      'TypeScript',
+      'Supabase',
+      'Google Maps',
+      'Ticketmaster API',
+      'NativeWind',
+      'Expo Router',
+      'EAS Build',
+    ],
+    isInDevelopment: true,
+  },
   {
     image: costly,
     title: 'Costly',

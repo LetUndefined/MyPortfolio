@@ -1,6 +1,6 @@
 import { ref, type Ref } from 'vue';
 import type { Skills } from '@/models/Interface';
-import { Palette, Code, Github, Brain, ChartCandlestick, Coffee } from 'lucide-vue-next';
+import { Palette, Code, Github, Brain, ChartCandlestick, Coffee, Database } from 'lucide-vue-next';
 
 export const skillsArray: Ref<Skills[]> = ref([
   {
@@ -65,6 +65,27 @@ export const skillsArray: Ref<Skills[]> = ref([
     chip: 'Frontend',
     color: '#E7F6F8',
     iconColor: '#61DAFB',
+  },
+  {
+    icon: Code,
+    skill: 'React Native',
+    chip: 'Learning',
+    color: '#E7F6F8',
+    iconColor: '#61DAFB',
+  },
+  {
+    icon: Code,
+    skill: 'Expo',
+    chip: 'Learning',
+    color: '#E8E8F0',
+    iconColor: '#000020',
+  },
+  {
+    icon: Database,
+    skill: 'Supabase',
+    chip: 'Learning',
+    color: '#D4F4E7',
+    iconColor: '#3ECF8E',
   },
   {
     icon: Palette,
